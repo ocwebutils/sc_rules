@@ -1,0 +1,238 @@
+{
+	"ACPI": {
+		"Add": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/sandy-bridge.html#acpi)**"
+			},
+			"Path: ^(?!(SSDT-OLARILA.aml))": {
+				"type": "error",
+				"message": "Please create config by using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)**. Reason of error here is that we (as OC Web Utilities team) don't support MaLdon behavior nor his actions in OpenCore community. Please use VANILLA config instead and **ALWAYS** check dortania guide"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** ACPI is disabled. Please check if you need this ACPI and enable it if it's necessary"
+			}
+		},
+		"Delete": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/sandy-bridge.html#acpi)**"
+			},
+			"Enabled: true": {
+				"type": "error",
+				"message": "**{0}** patch is disabled. <br/>Note: Make sure to enable CpuPm & Cpu0Ist patch **if you don't have generated SSDT-PM ACPI**"
+			}
+		}
+	},
+	"Booter": {
+		"Quirks": {
+			"AvoidRuntimeDefrag: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"DevirtualiseMmio: false": {
+				"type": "warning",
+				"message": "**{0}** should be disabled if your MOBO doesn't require it"
+			},
+			"EnableSafeModeSlide: true": {
+				"type": "warning",
+				"message": "**{0}** must be enabled unless OpenCore log says otherwise"
+			},
+			"EnableWriteUnprotector: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"ProtectUefiServices: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			},
+			"ProvideCustomSlide: true": {
+				"type": "warning",
+				"message": "**{0}** must be enabled unless OpenCore log says otherwise"
+			},
+			"RebuildAppleMemoryMap: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			},
+			"ResizeAppleGpuBars: -1": {
+				"type": "info",
+				"message": "**{0}** should be set to **0** if your GPU supports Resizable Bar"
+			},
+			"SetupVirtualMap: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"SyncRuntimePermissions: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			}
+		}
+	},
+	"Kernel": {
+		"Add": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Kexts. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)**"
+			},
+			"BundlePath: Lilu.kext": {
+				"type": "error",
+				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"BundlePath: VirtualSMC.kext": {
+				"type": "error",
+				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"BundlePath: WhateverGreen.kext": {
+				"type": "error",
+				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** is disabled. Please follow **[Dortania's Gathering Files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** subpage to check if this kext is needed for your hardware and enable it"
+			}
+		},
+		"Quirks": {
+			"AppleCpuPmCfgLock: false": {
+				"type": "warning",
+				"message": "**{0}** should be enabled if you have CFG-Lock enabled"
+			},
+			"AppleXcpmCfgLock: false": {
+				"type": "warning",
+				"message": "**{0}** should be enabled if you have CFG-Lock enabled"
+			},
+			"CustomSMBIOSGuid: false": {
+				"type": "info",
+				"message": "**{0}** should be enabled if it's DELL or VIAO system"
+			},
+			"DisableIoMapper: false": {
+				"type": "warning",
+				"message": "**{0}** should be enabled if VT-D is enabled in BIOS"
+			},
+			"LapicKernelPanic: false": {
+				"type": "info",
+				"message": "**{0}** should be enabled if it's HP system"
+			},
+			"PanicNoKextDump: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"PowerTimeoutKernelPanic: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"XhciPortLimit: false": {
+				"type": "info",
+				"message": "**{0}** must be disabled for macOS 11.3+. <br/>Note: To map USB ports on `Windows` you can use **[USBToolBox](https://github.com/USBToolBox/tool)**. Unfortunately, there is no `Linux` tool that allows to do it"
+			}
+		}
+	},
+	"Misc": {
+		"Debug": {
+			"AppleDebug: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled for debugging purposes"
+			},
+			"ApplePanic: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled if you want to log kernel panics to disk"
+			},
+			"DisableWatchDog: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled for debugging early boot issues"
+			},
+			"Target: 67": {
+				"type": "info",
+				"message": "**{0}** should be **{1}** for debugging purposes"
+			}
+		},
+		"Security": {
+			"AllowSetDefault: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"BlacklistAppleUpdate: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"ScanPolicy: 0": {
+				"type": "info",
+				"message": "**{0}** should be **{1}**. Please keep in mind that you would want to change this value to something more secure after installing macOS"
+			},
+			"SecureBootModel: Default": {
+				"type": "info",
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers"
+			},
+			"Vault: Optional": {
+				"type": "info",
+				"message": "**{0}** should be **Enabled** if you want to enable OpenCore vaulting mechanism"
+			}
+		}
+	},
+	"NVRAM": {
+		"WriteFlash: true": {
+			"type": "error",
+			"message": "**{0}** must be enabled"
+		}
+	},
+	"PlatformInfo": {
+		"Generic": {
+			"MLB: ^(?!(M0000000000000001))": {
+				"type": "error",
+				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			},
+			"SystemSerialNumber: ^(?!(W00000000001))": {
+				"type": "error",
+				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			},
+			"SystemUUID: ^(?!(00000000-0000-0000-0000-000000000000))": {
+				"type": "error",
+				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			}
+		}
+	},
+	"UEFI": {
+		"ConnectDrivers: true": {
+			"type": "error",
+			"message": "**{0}** must be enabled"
+		},
+		"Drivers": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Drivers. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)**"
+			},
+			"Path: (.*)HfsPlus.efi": {
+				"type": "error",
+				"message": "**HfsPlus.efi** or **OpenHfsPlus.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"Path: OpenRuntime.efi": {
+				"type": "error",
+				"message": "**{0}** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"Path: ^(?!(OpenCore.efi))": {
+				"type": "error",
+				"message": "**{0}** isn't supposed to be here. Please put it in root folder and run OC Snapshot with ProperTree"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** driver is disabled. Please check if you need this driver and enable it if it's necessary"
+			}
+		},
+		"Input": {
+			"KeySupport: false": {
+				"type": "info",
+				"message": "**{0}** should be enabled if your BIOS supports UEFI"
+			}
+		},
+		"Quirks": {
+			"IgnoreInvalidFlexRatio: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"UnblockFsConnect: false": {
+				"type": "info",
+				"message": "**{0}** should be enabled if it's HP system"
+			}
+		}
+	}
+}

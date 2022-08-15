@@ -1,0 +1,1215 @@
+{
+	"title": "OpenCore v0.6.1 schema",
+	"description": "Schema for OpenCore v0.6.1 config.plist",
+	"type": "object",
+	"properties": {
+		"ACPI": {
+			"type": "object",
+			"properties": {
+				"Add": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Path": {
+								"type": "string"
+							}
+						},
+						"required": ["Comment", "Enabled", "Path"],
+						"additionalProperties": false
+					}
+				},
+				"Delete": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"All": {
+								"type": "boolean"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"OemTableId": {
+								"type": "string"
+							},
+							"TableLength": {
+								"type": "integer"
+							},
+							"TableSignature": {
+								"type": "string"
+							}
+						},
+						"required": ["All", "Comment", "Enabled", "OemTableId", "TableLength", "TableSignature"],
+						"additionalProperties": false
+					}
+				},
+				"Patch": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Comment": {
+								"type": "string"
+							},
+							"Count": {
+								"type": "integer"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Find": {
+								"type": "string"
+							},
+							"Limit": {
+								"type": "integer"
+							},
+							"Mask": {
+								"type": "string"
+							},
+							"OemTableId": {
+								"type": "string"
+							},
+							"Replace": {
+								"type": "string"
+							}
+						},
+						"required": ["Comment", "Count", "Enabled", "Find", "Limit", "Mask", "OemTableId", "Replace"],
+						"additionalProperties": false
+					}
+				},
+				"Quirks": {
+					"type": "object",
+					"properties": {
+						"FadtEnableReset": {
+							"type": "boolean"
+						},
+						"NormalizeHeaders": {
+							"type": "boolean"
+						},
+						"RebaseRegions": {
+							"type": "boolean"
+						},
+						"ResetHwSig": {
+							"type": "boolean"
+						},
+						"ResetLogoStatus": {
+							"type": "boolean"
+						}
+					},
+					"required": ["FadtEnableReset", "NormalizeHeaders", "RebaseRegions", "ResetHwSig", "ResetLogoStatus"],
+					"additionalProperties": false
+				}
+			}
+		},
+		"Booter": {
+			"type": "object",
+			"properties": {
+				"MmioWhitelist": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Address": {
+								"type": "integer"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							}
+						},
+						"required": ["Address", "Comment", "Enabled"]
+					}
+				},
+				"Quirks": {
+					"type": "object",
+					"properties": {
+						"AvoidRuntimeDefrag": {
+							"type": "boolean"
+						},
+						"DevirtualiseMmio": {
+							"type": "boolean"
+						},
+						"DisableSingleUser": {
+							"type": "boolean"
+						},
+						"DisableVariableWrite": {
+							"type": "boolean"
+						},
+						"DiscardHibernateMap": {
+							"type": "boolean"
+						},
+						"EnableSafeModeSlide": {
+							"type": "boolean"
+						},
+						"EnableWriteUnprotector": {
+							"type": "boolean"
+						},
+						"ForceExitBootServices": {
+							"type": "boolean"
+						},
+						"ProtectMemoryRegions": {
+							"type": "boolean"
+						},
+						"ProtectSecureBoot": {
+							"type": "boolean"
+						},
+						"ProtectUefiServices": {
+							"type": "boolean"
+						},
+						"ProvideCustomSlide": {
+							"type": "boolean"
+						},
+						"ProvideMaxSlide": {
+							"type": "integer"
+						},
+						"RebuildAppleMemoryMap": {
+							"type": "boolean"
+						},
+						"SetupVirtualMap": {
+							"type": "boolean"
+						},
+						"SignalAppleOS": {
+							"type": "boolean"
+						},
+						"SyncRuntimePermissions": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"AvoidRuntimeDefrag",
+						"DevirtualiseMmio",
+						"DisableSingleUser",
+						"DisableVariableWrite",
+						"DiscardHibernateMap",
+						"EnableSafeModeSlide",
+						"EnableWriteUnprotector",
+						"ForceExitBootServices",
+						"ProtectMemoryRegions",
+						"ProtectSecureBoot",
+						"ProtectUefiServices",
+						"ProvideCustomSlide",
+						"ProvideMaxSlide",
+						"RebuildAppleMemoryMap",
+						"SetupVirtualMap",
+						"SignalAppleOS",
+						"SyncRuntimePermissions"
+					],
+					"additionalProperties": false
+				}
+			},
+			"required": ["MmioWhitelist", "Quirks"]
+		},
+		"DeviceProperties": {
+			"type": "object",
+			"properties": {
+				"Add": {
+					"type": "object"
+				},
+				"Delete": {
+					"type": "object"
+				}
+			},
+			"required": ["Add", "Delete"]
+		},
+		"Kernel": {
+			"type": "object",
+			"properties": {
+				"Add": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Arch": {
+								"type": "string"
+							},
+							"BundlePath": {
+								"type": "string"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"ExecutablePath": {
+								"type": "string"
+							},
+							"MaxKernel": {
+								"type": "string"
+							},
+							"MinKernel": {
+								"type": "string"
+							},
+							"PlistPath": {
+								"type": "string"
+							}
+						},
+						"required": ["Arch", "BundlePath", "Comment", "Enabled", "ExecutablePath", "MaxKernel", "MinKernel", "PlistPath"],
+						"additionalProperties": false
+					}
+				},
+				"Block": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Arch": {
+								"type": "string"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Identifier": {
+								"type": "string"
+							},
+							"MaxKernel": {
+								"type": "string"
+							},
+							"MinKernel": {
+								"type": "string"
+							}
+						},
+						"required": ["Arch", "Comment", "Enabled", "Identifier", "MaxKernel", "MinKernel"],
+						"additionalProperties": false
+					}
+				},
+				"Emulate": {
+					"type": "object",
+					"properties": {
+						"Cpuid1Data": {
+							"type": "string"
+						},
+						"Cpuid1Mask": {
+							"type": "string"
+						}
+					},
+					"required": ["Cpuid1Data", "Cpuid1Mask"],
+					"additionalProperties": false
+				},
+				"Force": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Arch": {
+								"type": "string"
+							},
+							"BundlePath": {
+								"type": "string"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"ExecutablePath": {
+								"type": "string"
+							},
+							"Identifier": {
+								"type": "string"
+							},
+							"MaxKernel": {
+								"type": "string"
+							},
+							"MinKernel": {
+								"type": "string"
+							},
+							"PlistPath": {
+								"type": "string"
+							}
+						},
+						"required": ["Arch", "BundlePath", "Comment", "Enabled", "ExecutablePath", "Identifier", "MaxKernel", "MinKernel", "PlistPath"]
+					}
+				},
+				"Patch": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Arch": {
+								"type": "string"
+							},
+							"Base": {
+								"type": "string"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Count": {
+								"type": "integer"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Find": {
+								"type": "string"
+							},
+							"Identifier": {
+								"type": "string"
+							},
+							"Limit": {
+								"type": "integer"
+							},
+							"Mask": {
+								"type": "string"
+							},
+							"MaxKernel": {
+								"type": "string"
+							},
+							"MinKernel": {
+								"type": "string"
+							},
+							"Replace": {
+								"type": "string"
+							},
+							"ReplaceMask": {
+								"type": "string"
+							},
+							"Skip": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"Arch",
+							"Base",
+							"Comment",
+							"Count",
+							"Enabled",
+							"Find",
+							"Identifier",
+							"Limit",
+							"Mask",
+							"MaxKernel",
+							"MinKernel",
+							"Replace",
+							"ReplaceMask",
+							"Skip"
+						],
+						"additionalProperties": false
+					}
+				},
+				"Quirks": {
+					"type": "object",
+					"properties": {
+						"AppleCpuPmCfgLock": {
+							"type": "boolean"
+						},
+						"AppleXcpmCfgLock": {
+							"type": "boolean"
+						},
+						"AppleXcpmExtraMsrs": {
+							"type": "boolean"
+						},
+						"AppleXcpmForceBoost": {
+							"type": "boolean"
+						},
+						"CustomSMBIOSGuid": {
+							"type": "boolean"
+						},
+						"DisableIoMapper": {
+							"type": "boolean"
+						},
+						"DisableLinkeditJettison": {
+							"type": "boolean"
+						},
+						"DisableRtcChecksum": {
+							"type": "boolean"
+						},
+						"DummyPowerManagement": {
+							"type": "boolean"
+						},
+						"ExternalDiskIcons": {
+							"type": "boolean"
+						},
+						"ForceSecureBootScheme": {
+							"type": "boolean"
+						},
+						"IncreasePciBarSize": {
+							"type": "boolean"
+						},
+						"LapicKernelPanic": {
+							"type": "boolean"
+						},
+						"PanicNoKextDump": {
+							"type": "boolean"
+						},
+						"PowerTimeoutKernelPanic": {
+							"type": "boolean"
+						},
+						"ThirdPartyDrives": {
+							"type": "boolean"
+						},
+						"XhciPortLimit": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"AppleCpuPmCfgLock",
+						"AppleXcpmCfgLock",
+						"AppleXcpmExtraMsrs",
+						"AppleXcpmForceBoost",
+						"CustomSMBIOSGuid",
+						"DisableIoMapper",
+						"DisableLinkeditJettison",
+						"DisableRtcChecksum",
+						"DummyPowerManagement",
+						"ExternalDiskIcons",
+						"ForceSecureBootScheme",
+						"IncreasePciBarSize",
+						"LapicKernelPanic",
+						"PanicNoKextDump",
+						"PowerTimeoutKernelPanic",
+						"ThirdPartyDrives",
+						"XhciPortLimit"
+					],
+					"additionalProperties": false
+				},
+				"Scheme": {
+					"type": "object",
+					"properties": {
+						"FuzzyMatch": {
+							"type": "boolean"
+						},
+						"KernelArch": {
+							"type": "string"
+						},
+						"KernelCache": {
+							"type": "string"
+						}
+					},
+					"required": ["FuzzyMatch", "KernelArch", "KernelCache"],
+					"additionalProperties": false
+				}
+			},
+			"required": ["Add", "Block", "Emulate", "Force", "Patch", "Quirks", "Scheme"]
+		},
+		"Misc": {
+			"type": "object",
+			"properties": {
+				"BlessOverride": {
+					"type": "array"
+				},
+				"Boot": {
+					"type": "object",
+					"properties": {
+						"ConsoleAttributes": {
+							"type": "integer"
+						},
+						"HibernateMode": {
+							"type": "string"
+						},
+						"HideAuxiliary": {
+							"type": "boolean"
+						},
+						"PickerAttributes": {
+							"type": "integer"
+						},
+						"PickerAudioAssist": {
+							"type": "boolean"
+						},
+						"PickerMode": {
+							"type": "string"
+						},
+						"PollAppleHotKeys": {
+							"type": "boolean"
+						},
+						"ShowPicker": {
+							"type": "boolean"
+						},
+						"TakeoffDelay": {
+							"type": "integer"
+						},
+						"Timeout": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"ConsoleAttributes",
+						"HibernateMode",
+						"HideAuxiliary",
+						"PickerAttributes",
+						"PickerAudioAssist",
+						"PickerMode",
+						"PollAppleHotKeys",
+						"ShowPicker",
+						"TakeoffDelay",
+						"Timeout"
+					],
+					"additionalProperties": false
+				},
+				"Debug": {
+					"type": "object",
+					"properties": {
+						"AppleDebug": {
+							"type": "boolean"
+						},
+						"ApplePanic": {
+							"type": "boolean"
+						},
+						"DisableWatchDog": {
+							"type": "boolean"
+						},
+						"DisplayDelay": {
+							"type": "integer"
+						},
+						"DisplayLevel": {
+							"type": "integer"
+						},
+						"SerialInit": {
+							"type": "boolean"
+						},
+						"SysReport": {
+							"type": "boolean"
+						},
+						"Target": {
+							"type": "integer"
+						}
+					},
+					"required": ["AppleDebug", "ApplePanic", "DisableWatchDog", "DisplayDelay", "DisplayLevel", "SerialInit", "SysReport", "Target"],
+					"additionalProperties": false
+				},
+				"Entries": {
+					"type": "array",
+					"items": [
+						{
+							"type": "object",
+							"properties": {
+								"Arguments": {
+									"type": "string"
+								},
+								"Auxiliary": {
+									"type": "boolean"
+								},
+								"Comment": {
+									"type": "string"
+								},
+								"Enabled": {
+									"type": "boolean"
+								},
+								"Name": {
+									"type": "string"
+								},
+								"Path": {
+									"type": "string"
+								}
+							},
+							"required": ["Arguments", "Auxiliary", "Comment", "Enabled", "Name", "Path"],
+							"additionalProperties": false
+						}
+					]
+				},
+				"Security": {
+					"type": "object",
+					"properties": {
+						"AllowNvramReset": {
+							"type": "boolean"
+						},
+						"AllowSetDefault": {
+							"type": "boolean"
+						},
+						"ApECID": {
+							"type": "integer"
+						},
+						"AuthRestart": {
+							"type": "boolean"
+						},
+						"BootProtect": {
+							"type": "string"
+						},
+						"DmgLoading": {
+							"type": "string"
+						},
+						"EnablePassword": {
+							"type": "boolean"
+						},
+						"ExposeSensitiveData": {
+							"type": "integer"
+						},
+						"HaltLevel": {
+							"type": "integer"
+						},
+						"PasswordHash": {
+							"type": "string"
+						},
+						"PasswordSalt": {
+							"type": "string"
+						},
+						"ScanPolicy": {
+							"type": "integer"
+						},
+						"SecureBootModel": {
+							"type": "string"
+						},
+						"Vault": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"AllowNvramReset",
+						"AllowSetDefault",
+						"ApECID",
+						"AuthRestart",
+						"BootProtect",
+						"DmgLoading",
+						"EnablePassword",
+						"ExposeSensitiveData",
+						"HaltLevel",
+						"PasswordHash",
+						"PasswordSalt",
+						"ScanPolicy",
+						"SecureBootModel",
+						"Vault"
+					],
+					"additionalProperties": false
+				},
+				"Tools": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Arguments": {
+								"type": "string"
+							},
+							"Auxiliary": {
+								"type": "boolean"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Name": {
+								"type": "string"
+							},
+							"Path": {
+								"type": "string"
+							}
+						},
+						"required": ["Arguments", "Auxiliary", "Comment", "Enabled", "Name", "Path"],
+						"additionalProperties": false
+					}
+				}
+			},
+			"required": ["BlessOverride", "Boot", "Debug", "Entries", "Security", "Serial", "Tools"]
+		},
+		"NVRAM": {
+			"type": "object",
+			"properties": {
+				"Add": {
+					"type": "object",
+					"properties": {
+						"4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14": {
+							"type": "object",
+							"properties": {
+								"DefaultBackgroundColor": {
+									"type": "string"
+								},
+								"UIScale": {
+									"type": "string"
+								}
+							}
+						},
+						"4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102": {
+							"type": "object",
+							"properties": {
+								"rtc-blacklist": {
+									"type": "string"
+								}
+							}
+						},
+						"7C436110-AB2A-4BBB-A880-FE41995C9F82": {
+							"type": "object",
+							"properties": {
+								"SystemAudioVolume": {
+									"type": "string"
+								},
+								"boot-args": {
+									"type": "string"
+								},
+								"csr-active-config": {
+									"type": "string"
+								},
+								"prev-lang:kbd": {
+									"type": ["object", "string"]
+								},
+								"run-efi-updater": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"Delete": {
+					"type": "object",
+					"properties": {
+						"4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14": {
+							"type": "array"
+						},
+						"4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102": {
+							"type": "array"
+						},
+						"7C436110-AB2A-4BBB-A880-FE41995C9F82": {
+							"type": "array"
+						}
+					}
+				},
+				"LegacyEnable": {
+					"type": "boolean"
+				},
+				"LegacyOverwrite": {
+					"type": "boolean"
+				},
+				"LegacySchema": {
+					"type": "object",
+					"properties": {
+						"7C436110-AB2A-4BBB-A880-FE41995C9F82": {
+							"type": "array"
+						},
+						"8BE4DF61-93CA-11D2-AA0D-00E098032B8C": {
+							"type": "array"
+						}
+					}
+				},
+				"WriteFlash": {
+					"type": "boolean"
+				}
+			},
+			"required": ["Add", "Delete", "LegacyEnable", "LegacyOverwrite", "LegacySchema", "WriteFlash"],
+			"additionalProperties": false
+		},
+		"PlatformInfo": {
+			"type": "object",
+			"properties": {
+				"Automatic": {
+					"type": "boolean"
+				},
+				"CustomMemory": {
+					"type": "boolean"
+				},
+				"Generic": {
+					"type": "object",
+					"properties": {
+						"AdviseWindows": {
+							"type": "boolean"
+						},
+						"MLB": {
+							"type": "string"
+						},
+						"ROM": {
+							"type": "string"
+						},
+						"SpoofVendor": {
+							"type": "boolean"
+						},
+						"SystemProductName": {
+							"type": "string"
+						},
+						"SystemSerialNumber": {
+							"type": "string"
+						},
+						"SystemUUID": {
+							"type": "string"
+						}
+					},
+					"required": ["AdviseWindows", "MLB", "ROM", "SpoofVendor", "SystemProductName", "SystemSerialNumber", "SystemUUID"]
+				},
+				"Memory": {
+					"type": "object",
+					"properties": {
+						"DataWidth": {
+							"type": "integer"
+						},
+						"ErrorCorrection": {
+							"type": "integer"
+						},
+						"FormFactor": {
+							"type": "integer"
+						},
+						"MaxCapacity": {
+							"type": "integer"
+						},
+						"TotalWidth": {
+							"type": "integer"
+						},
+						"Type": {
+							"type": "integer"
+						},
+						"TypeDetail": {
+							"type": "integer"
+						},
+						"Devices": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"AssetTag": {
+										"type": "string"
+									},
+									"BankLocator": {
+										"type": "string"
+									},
+									"DeviceLocator": {
+										"type": "string"
+									},
+									"Manufacturer": {
+										"type": "string"
+									},
+									"PartNumber": {
+										"type": "string"
+									},
+									"SerialNumber": {
+										"type": "string"
+									},
+									"Size": {
+										"type": "integer"
+									},
+									"Speed": {
+										"type": "integer"
+									}
+								},
+								"required": ["AssetTag", "BankLocator", "DeviceLocator", "Manufacturer", "PartNumber", "SerialNumber", "Size", "Speed"]
+							}
+						}
+					},
+					"required": ["DataWidth", "ErrorCorrection", "FormFactor", "MaxCapacity", "TotalWidth", "Type", "TypeDetail", "Devices"]
+				},
+				"UpdateDataHub": {
+					"type": "boolean"
+				},
+				"UpdateNVRAM": {
+					"type": "boolean"
+				},
+				"UpdateSMBIOS": {
+					"type": "boolean"
+				},
+				"UpdateSMBIOSMode": {
+					"type": "string"
+				}
+			},
+			"required": ["Automatic", "CustomMemory", "Generic", "UpdateDataHub", "UpdateNVRAM", "UpdateSMBIOS", "UpdateSMBIOSMode"],
+			"additionalProperties": false
+		},
+		"UEFI": {
+			"type": "object",
+			"properties": {
+				"APFS": {
+					"type": "object",
+					"properties": {
+						"EnableJumpstart": {
+							"type": "boolean"
+						},
+						"GlobalConnect": {
+							"type": "boolean"
+						},
+						"HideVerbose": {
+							"type": "boolean"
+						},
+						"JumpstartHotPlug": {
+							"type": "boolean"
+						},
+						"MinDate": {
+							"type": "integer"
+						},
+						"MinVersion": {
+							"type": "integer"
+						}
+					},
+					"required": ["EnableJumpstart", "GlobalConnect", "HideVerbose", "JumpstartHotPlug", "MinDate", "MinVersion"],
+					"additionalProperties": false
+				},
+				"Audio": {
+					"type": "object",
+					"properties": {
+						"AudioCodec": {
+							"type": "integer"
+						},
+						"AudioDevice": {
+							"type": "string"
+						},
+						"AudioOut": {
+							"type": "integer"
+						},
+						"AudioSupport": {
+							"type": "boolean"
+						},
+						"MinimumVolume": {
+							"type": "integer"
+						},
+						"PlayChime": {
+							"type": "boolean"
+						},
+						"VolumeAmplifier": {
+							"type": "integer"
+						}
+					},
+					"required": ["AudioCodec", "AudioDevice", "AudioOut", "AudioSupport", "DisconnectHda", "MinimumVolume", "PlayChime", "VolumeAmplifier"],
+					"additionalProperties": false
+				},
+				"ConnectDrivers": {
+					"type": "boolean"
+				},
+				"Drivers": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"Input": {
+					"type": "object",
+					"properties": {
+						"KeyFiltering": {
+							"type": "boolean"
+						},
+						"KeyForgetThreshold": {
+							"type": "integer"
+						},
+						"KeyMergeThreshold": {
+							"type": "integer"
+						},
+						"KeySupport": {
+							"type": "boolean"
+						},
+						"KeySupportMode": {
+							"type": "string"
+						},
+						"KeySwap": {
+							"type": "boolean"
+						},
+						"PointerSupport": {
+							"type": "boolean"
+						},
+						"PointerSupportMode": {
+							"type": "string"
+						},
+						"TimerResolution": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"KeyFiltering",
+						"KeyForgetThreshold",
+						"KeyMergeThreshold",
+						"KeySupport",
+						"KeySupportMode",
+						"KeySwap",
+						"PointerSupport",
+						"PointerSupportMode",
+						"TimerResolution"
+					],
+					"additionalProperties": false
+				},
+				"Output": {
+					"type": "object",
+					"properties": {
+						"ClearScreenOnModeSwitch": {
+							"type": "boolean"
+						},
+						"ConsoleMode": {
+							"type": "string"
+						},
+						"DirectGopRendering": {
+							"type": "boolean"
+						},
+						"ForceResolution": {
+							"type": "boolean"
+						},
+						"IgnoreTextInGraphics": {
+							"type": "boolean"
+						},
+						"ProvideConsoleGop": {
+							"type": "boolean"
+						},
+						"ReconnectOnResChange": {
+							"type": "boolean"
+						},
+						"ReplaceTabWithSpace": {
+							"type": "boolean"
+						},
+						"Resolution": {
+							"type": "string"
+						},
+						"SanitiseClearScreen": {
+							"type": "boolean"
+						},
+						"TextRenderer": {
+							"type": "string"
+						},
+						"UgaPassThrough": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"ClearScreenOnModeSwitch",
+						"ConsoleMode",
+						"DirectGopRendering",
+						"ForceResolution",
+						"IgnoreTextInGraphics",
+						"ProvideConsoleGop",
+						"ReconnectOnResChange",
+						"ReplaceTabWithSpace",
+						"Resolution",
+						"SanitiseClearScreen",
+						"TextRenderer",
+						"UgaPassThrough"
+					],
+					"additionalProperties": false
+				},
+				"ProtocolOverrides": {
+					"type": "object",
+					"properties": {
+						"AppleAudio": {
+							"type": "boolean"
+						},
+						"AppleBootPolicy": {
+							"type": "boolean"
+						},
+						"AppleDebugLog": {
+							"type": "boolean"
+						},
+						"AppleEvent": {
+							"type": "boolean"
+						},
+						"AppleFramebufferInfo": {
+							"type": "boolean"
+						},
+						"AppleImageConversion": {
+							"type": "boolean"
+						},
+						"AppleImg4Verification": {
+							"type": "boolean"
+						},
+						"AppleKeyMap": {
+							"type": "boolean"
+						},
+						"AppleRtcRam": {
+							"type": "boolean"
+						},
+						"AppleSecureBoot": {
+							"type": "boolean"
+						},
+						"AppleSmcIo": {
+							"type": "boolean"
+						},
+						"AppleUserInterfaceTheme": {
+							"type": "boolean"
+						},
+						"DataHub": {
+							"type": "boolean"
+						},
+						"DeviceProperties": {
+							"type": "boolean"
+						},
+						"FirmwareVolume": {
+							"type": "boolean"
+						},
+						"HashServices": {
+							"type": "boolean"
+						},
+						"OSInfo": {
+							"type": "boolean"
+						},
+						"UnicodeCollation": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"AppleAudio",
+						"AppleBootPolicy",
+						"AppleDebugLog",
+						"AppleFramebufferInfo",
+						"AppleImageConversion",
+						"AppleImg4Verification",
+						"AppleKeyMap",
+						"AppleRtcRam",
+						"AppleSecureBoot",
+						"AppleSmcIo",
+						"AppleUserInterfaceTheme",
+						"DataHub",
+						"DeviceProperties",
+						"FirmwareVolume",
+						"HashServices",
+						"OSInfo",
+						"UnicodeCollation"
+					],
+					"additionalProperties": false
+				},
+				"Quirks": {
+					"type": "object",
+					"properties": {
+						"DeduplicateBootOrder": {
+							"type": "boolean"
+						},
+						"ExitBootServicesDelay": {
+							"type": "integer"
+						},
+						"IgnoreInvalidFlexRatio": {
+							"type": "boolean"
+						},
+						"ReleaseUsbOwnership": {
+							"type": "boolean"
+						},
+						"RequestBootVarRouting": {
+							"type": "boolean"
+						},
+						"TscSyncTimeout": {
+							"type": "integer"
+						},
+						"UnblockFsConnect": {
+							"type": "boolean"
+						}
+					},
+					"required": [
+						"DeduplicateBootOrder",
+						"ExitBootServicesDelay",
+						"IgnoreInvalidFlexRatio",
+						"ReleaseUsbOwnership",
+						"RequestBootVarRouting",
+						"TscSyncTimeout",
+						"UnblockFsConnect"
+					],
+					"additionalProperties": false
+				},
+				"ReservedMemory": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Address": {
+								"type": "integer"
+							},
+							"Comment": {
+								"type": "string"
+							},
+							"Enabled": {
+								"type": "boolean"
+							},
+							"Size": {
+								"type": "integer"
+							}
+						},
+						"required": ["Address", "Comment", "Enabled", "Size"]
+					}
+				}
+			},
+			"required": ["APFS", "Audio", "ConnectDrivers", "Drivers", "Input", "Output", "ProtocolOverrides", "Quirks", "ReservedMemory"]
+		}
+	},
+	"required": ["ACPI", "Booter", "DeviceProperties", "Kernel", "Misc", "NVRAM", "PlatformInfo", "UEFI"]
+}

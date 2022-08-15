@@ -1,0 +1,156 @@
+{
+	"Desktop": {
+		"AMD": [
+			{
+				"name": "Zen (17h, 19h)",
+				"codename": "desktop_amd_zen",
+				"rules": "zen.rules.json"
+			},
+			{
+				"name": "Fx (15h, 16h)",
+				"codename": "desktop_amd_fx",
+				"rules": "fx.rules.json"
+			}
+		],
+		"Intel": [
+			{
+				"name": "Alder Lake (12th)",
+				"codename": "desktop_intel_alderlake",
+				"rules": "alderlake.rules.json"
+			},
+			{
+				"name": "Rocket Lake (11th)",
+				"codename": "desktop_intel_rocketlake",
+				"rules": "rocketlake.rules.json"
+			},
+			{
+				"name": "Comet Lake (10th)",
+				"codename": "desktop_intel_cometlake",
+				"rules": "cometlake.rules.json"
+			},
+			{
+				"name": "Coffee Lake (8th, 9th)",
+				"codename": "desktop_intel_coffeelake",
+				"rules": "coffeelake.rules.json"
+			},
+			{
+				"name": "Kaby Lake (7th)",
+				"codename": "desktop_intel_kabylake",
+				"rules": "kabylake.rules.json"
+			},
+			{
+				"name": "Skylake (6th)",
+				"codename": "desktop_intel_skylake",
+				"rules": "skylake.rules.json"
+			},
+			{
+				"name": "Haswell (4th)",
+				"codename": "desktop_intel_haswell",
+				"rules": "haswell.rules.json"
+			},
+			{
+				"name": "Ivy Bridge (3rd)",
+				"codename": "desktop_intel_ivybridge",
+				"rules": "ivybridge.rules.json"
+			},
+			{
+				"name": "Sandy Bridge (2rd)",
+				"codename": "desktop_intel_sandybridge",
+				"rules": "sandybridge.rules.json"
+			},
+			{
+				"name": "Clarkdale (1st)",
+				"codename": "desktop_intel_clarkdale",
+				"rules": "clarkdale.rules.json"
+			},
+			{
+				"name": "Penryn (Intel Core 2)",
+				"codename": "desktop_intel_penryn",
+				"rules": "penryn.rules.json"
+			}
+		]
+	},
+	"HEDT": {
+		"Intel": [
+			{
+				"name": "Skylake-X (7th, 8th, 9th, 10th)",
+				"codename": "hedt_intel_skylake-x",
+				"rules": "skylake-x.rules.json"
+			},
+			{
+				"name": "Broadwell-E (6th)",
+				"codename": "hedt_intel_broadwell-e",
+				"rules": "broadwell-e.rules.json"
+			},
+			{
+				"name": "Haswell-E (5th)",
+				"codename": "hedt_intel_haswell-e",
+				"rules": "haswell-e.rules.json"
+			},
+			{
+				"name": "Sandy Bridge-E, Ivy Bridge-E (3rd, 4th)",
+				"codename": "hedt_intel_sandy_ivy-e",
+				"rules": "sandy_ivy-e.rules.json"
+			},
+			{
+				"name": "Nehalem (1st, 2rd)",
+				"codename": "hedt_intel_nehalem",
+				"rules": "nehalem.rules.json"
+			}
+		]
+	},
+	"Laptop": {
+		"Intel": [
+			{
+				"name": "Ice Lake (10th)",
+				"codename": "laptop_intel_icelake",
+				"rules": "icelake.rules.json"
+			},
+			{
+				"name": "Coffee Lake Plus, Comet Lake (9th, 10th)",
+				"codename": "laptop_intel_cofee_comet",
+				"rules": "coffee_comet.rules.json"
+			},
+			{
+				"name": "Coffee Lake, Whiskey Lake (8th)",
+				"codename": "laptop_intel_coffee_whiskey",
+				"rules": "coffee_whiskey.rules.json"
+			},
+			{
+				"name": "Kaby Lake (7th)",
+				"codename": "laptop_intel_kabylake",
+				"rules": "kabylake.rules.json"
+			},
+			{
+				"name": "Skylake (6th)",
+				"codename": "laptop_intel_skylake",
+				"rules": "skylake.rules.json"
+			},
+			{
+				"name": "Broadwell (5th)",
+				"codename": "laptop_intel_broadwell",
+				"rules": "broadwell.rules.json"
+			},
+			{
+				"name": "Haswell (4th)",
+				"codename": "laptop_intel_haswell",
+				"rules": "haswell.rules.json"
+			},
+			{
+				"name": "Ivy Bridge (3rd)",
+				"codename": "laptop_intel_ivybridge",
+				"rules": "ivybridge.rules.json"
+			},
+			{
+				"name": "Sandy Bridge (2rd)",
+				"codename": "laptop_intel_sandybridge",
+				"rules": "sandybridge.rules.json"
+			},
+			{
+				"name": "Arrandale (1st)",
+				"codename": "desktop_intel_arrandale",
+				"rules": "arrandale.rules.json"
+			}
+		]
+	}
+}
