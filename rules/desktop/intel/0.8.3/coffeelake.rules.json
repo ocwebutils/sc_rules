@@ -7,7 +7,7 @@
 			},
 			"Path: ^(?!(SSDT-OLARILA.aml))": {
 				"type": "error",
-				"message": "Please create config by using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)**. Reason of error here is that we (as OC Web Utilities team) don't support MaLdon behavior nor his actions in OpenCore community. Please use VANILLA config instead and **ALWAYS** check dortania guide"
+				"message": "Please create config by using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)**. We (OC Web Utilities team) don't support MaLdon behavior nor his actions in OpenCore community. Please use VANILLA config instead and **ALWAYS** check dortania guide"
 			},
 			"Path: ^(?!(DSDT.aml))": {
 				"type": "error",
