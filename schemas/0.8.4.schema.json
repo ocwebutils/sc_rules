@@ -940,6 +940,9 @@
 							"Flavour": {
 								"type": "string"
 							},
+							"FullNvramAccess": {
+								"type": "boolean"
+							},
 							"Name": {
 								"type": "string"
 							},
@@ -959,6 +962,7 @@
 							"Comment",
 							"Enabled",
 							"Flavour",
+							"FullNvramAccess",
 							"Name",
 							"Path",
 							"RealPath",
