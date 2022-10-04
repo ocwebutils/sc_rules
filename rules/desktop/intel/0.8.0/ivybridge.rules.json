@@ -5,9 +5,9 @@
 				"type": "error",
 				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/ivy-bridge.html#acpi)**"
 			},
-			"Path: ^(?!(SSDT-OLARILA.aml))": {
+			"Path: ^(?!((SSDT-OLA(.*)|MALD(.*)).aml))": {
 				"type": "error",
-				"message": "Please create config by using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)**. We (OC Web Utilities team) don't support MaLdon behavior nor his actions in OpenCore community. Please use VANILLA config instead and **ALWAYS** check dortania guide"
+				"message": "We don't support MaLDon behavior against Hackintosh community and such we recommend using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine. Please avoid any macOS distribution in the future."
 			},
 			"Enabled: true": {
 				"type": "warning",
@@ -80,10 +80,12 @@
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"BundlePath: VirtualSMC.kext": {
+				"order": "<Lilu.kext",
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"BundlePath: WhateverGreen.kext": {
+				"order": "<Lilu.kext",
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
@@ -205,9 +207,9 @@
 				"type": "error",
 				"message": "You may be missing Drivers. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)**"
 			},
-			"Path: (.*)HfsPlus.efi": {
+			"Path: (.*)HfsPlus(.*).efi": {
 				"type": "error",
-				"message": "**HfsPlus.efi** or **OpenHfsPlus.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**HfsPlus.efi**, **OpenHfsPlus.efi** or **HfsPlusLegacy.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"Path: OpenRuntime.efi": {
 				"type": "error",

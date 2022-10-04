@@ -148,7 +148,7 @@
 			},
 			{
 				"name": "Arrandale (1st)",
-				"codename": "desktop_intel_arrandale",
+				"codename": "laptop_intel_arrandale",
 				"rules": "arrandale.rules.json"
 			}
 		]

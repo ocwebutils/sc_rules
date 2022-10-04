@@ -66,10 +66,12 @@
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"BundlePath: VirtualSMC.kext": {
+				"order": "<Lilu.kext",
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"BundlePath: WhateverGreen.kext": {
+				"order": "<Lilu.kext",
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
