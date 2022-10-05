@@ -193,9 +193,9 @@
 				"type": "error",
 				"message": "You may be missing Drivers. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)**"
 			},
-			"Path: (.*)HfsPlus.efi": {
+			"Path: (.*)HfsPlus(.*).efi": {
 				"type": "error",
-				"message": "**HfsPlus.efi** or **OpenHfsPlus.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**HfsPlus.efi**, **OpenHfsPlus.efi** or **HfsPlusLegacy.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"Path: OpenRuntime.efi": {
 				"type": "error",
