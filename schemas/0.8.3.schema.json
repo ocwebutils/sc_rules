@@ -49,14 +49,7 @@
 								"type": "string"
 							}
 						},
-						"required": [
-							"All",
-							"Comment",
-							"Enabled",
-							"OemTableId",
-							"TableLength",
-							"TableSignature"
-						],
+						"required": ["All", "Comment", "Enabled", "OemTableId", "TableLength", "TableSignature"],
 						"additionalProperties": false
 					}
 				},
@@ -149,14 +142,7 @@
 							"type": "boolean"
 						}
 					},
-					"required": [
-						"FadtEnableReset",
-						"NormalizeHeaders",
-						"RebaseRegions",
-						"ResetHwSig",
-						"ResetLogoStatus",
-						"SyncTableIds"
-					],
+					"required": ["FadtEnableReset", "NormalizeHeaders", "RebaseRegions", "ResetHwSig", "ResetLogoStatus", "SyncTableIds"],
 					"additionalProperties": false
 				}
 			}
@@ -221,19 +207,7 @@
 								"type": "integer"
 							}
 						},
-						"required": [
-							"Arch",
-							"Comment",
-							"Count",
-							"Enabled",
-							"Find",
-							"Identifier",
-							"Limit",
-							"Mask",
-							"Replace",
-							"ReplaceMask",
-							"Skip"
-						],
+						"required": ["Arch", "Comment", "Count", "Enabled", "Find", "Identifier", "Limit", "Mask", "Replace", "ReplaceMask", "Skip"],
 						"additionalProperties": false
 					}
 				},
@@ -373,16 +347,7 @@
 								"type": "string"
 							}
 						},
-						"required": [
-							"Arch",
-							"BundlePath",
-							"Comment",
-							"Enabled",
-							"ExecutablePath",
-							"MaxKernel",
-							"MinKernel",
-							"PlistPath"
-						],
+						"required": ["Arch", "BundlePath", "Comment", "Enabled", "ExecutablePath", "MaxKernel", "MinKernel", "PlistPath"],
 						"additionalProperties": false
 					}
 				},
@@ -413,15 +378,7 @@
 								"type": "string"
 							}
 						},
-						"required": [
-							"Arch",
-							"Comment",
-							"Enabled",
-							"Identifier",
-							"MaxKernel",
-							"MinKernel",
-							"Strategy"
-						],
+						"required": ["Arch", "Comment", "Enabled", "Identifier", "MaxKernel", "MinKernel", "Strategy"],
 						"additionalProperties": false
 					}
 				},
@@ -444,13 +401,7 @@
 							"type": "string"
 						}
 					},
-					"required": [
-						"Cpuid1Data",
-						"Cpuid1Mask",
-						"DummyPowerManagement",
-						"MaxKernel",
-						"MinKernel"
-					],
+					"required": ["Cpuid1Data", "Cpuid1Mask", "DummyPowerManagement", "MaxKernel", "MinKernel"],
 					"additionalProperties": false
 				},
 				"Force": {
@@ -486,17 +437,7 @@
 								"type": "string"
 							}
 						},
-						"required": [
-							"Arch",
-							"BundlePath",
-							"Comment",
-							"Enabled",
-							"ExecutablePath",
-							"Identifier",
-							"MaxKernel",
-							"MinKernel",
-							"PlistPath"
-						]
+						"required": ["Arch", "BundlePath", "Comment", "Enabled", "ExecutablePath", "Identifier", "MaxKernel", "MinKernel", "PlistPath"]
 					}
 				},
 				"Patch": {
@@ -678,24 +619,11 @@
 							"type": "string"
 						}
 					},
-					"required": [
-						"CustomKernel",
-						"FuzzyMatch",
-						"KernelArch",
-						"KernelCache"
-					],
+					"required": ["CustomKernel", "FuzzyMatch", "KernelArch", "KernelCache"],
 					"additionalProperties": false
 				}
 			},
-			"required": [
-				"Add",
-				"Block",
-				"Emulate",
-				"Force",
-				"Patch",
-				"Quirks",
-				"Scheme"
-			]
+			"required": ["Add", "Block", "Emulate", "Force", "Patch", "Quirks", "Scheme"]
 		},
 		"Misc": {
 			"type": "object",
@@ -791,16 +719,7 @@
 							"type": "integer"
 						}
 					},
-					"required": [
-						"AppleDebug",
-						"ApplePanic",
-						"DisableWatchDog",
-						"DisplayDelay",
-						"DisplayLevel",
-						"LogModules",
-						"SysReport",
-						"Target"
-					],
+					"required": ["AppleDebug", "ApplePanic", "DisableWatchDog", "DisplayDelay", "DisplayLevel", "LogModules", "SysReport", "Target"],
 					"additionalProperties": false
 				},
 				"Entries": {
@@ -834,16 +753,7 @@
 									"type": "boolean"
 								}
 							},
-							"required": [
-								"Arguments",
-								"Auxiliary",
-								"Comment",
-								"Enabled",
-								"Flavour",
-								"Name",
-								"Path",
-								"TextMode"
-							],
+							"required": ["Arguments", "Auxiliary", "Comment", "Enabled", "Flavour", "Name", "Path", "TextMode"],
 							"additionalProperties": false
 						}
 					]
@@ -953,30 +863,12 @@
 								"type": "boolean"
 							}
 						},
-						"required": [
-							"Arguments",
-							"Auxiliary",
-							"Comment",
-							"Enabled",
-							"Flavour",
-							"Name",
-							"Path",
-							"RealPath",
-							"TextMode"
-						],
+						"required": ["Arguments", "Auxiliary", "Comment", "Enabled", "Flavour", "Name", "Path", "RealPath", "TextMode"],
 						"additionalProperties": false
 					}
 				}
 			},
-			"required": [
-				"BlessOverride",
-				"Boot",
-				"Debug",
-				"Entries",
-				"Security",
-				"Serial",
-				"Tools"
-			]
+			"required": ["BlessOverride", "Boot", "Debug", "Entries", "Security", "Serial", "Tools"]
 		},
 		"NVRAM": {
 			"type": "object",
@@ -1057,13 +949,7 @@
 					"type": "boolean"
 				}
 			},
-			"required": [
-				"Add",
-				"Delete",
-				"LegacyOverwrite",
-				"LegacySchema",
-				"WriteFlash"
-			],
+			"required": ["Add", "Delete", "LegacyOverwrite", "LegacySchema", "WriteFlash"],
 			"additionalProperties": false
 		},
 		"PlatformInfo": {
@@ -1176,29 +1062,11 @@
 										"type": "integer"
 									}
 								},
-								"required": [
-									"AssetTag",
-									"BankLocator",
-									"DeviceLocator",
-									"Manufacturer",
-									"PartNumber",
-									"SerialNumber",
-									"Size",
-									"Speed"
-								]
+								"required": ["AssetTag", "BankLocator", "DeviceLocator", "Manufacturer", "PartNumber", "SerialNumber", "Size", "Speed"]
 							}
 						}
 					},
-					"required": [
-						"DataWidth",
-						"ErrorCorrection",
-						"FormFactor",
-						"MaxCapacity",
-						"TotalWidth",
-						"Type",
-						"TypeDetail",
-						"Devices"
-					]
+					"required": ["DataWidth", "ErrorCorrection", "FormFactor", "MaxCapacity", "TotalWidth", "Type", "TypeDetail", "Devices"]
 				},
 				"UpdateDataHub": {
 					"type": "boolean"
@@ -1216,16 +1084,7 @@
 					"type": "boolean"
 				}
 			},
-			"required": [
-				"Automatic",
-				"CustomMemory",
-				"Generic",
-				"UpdateDataHub",
-				"UpdateNVRAM",
-				"UpdateSMBIOS",
-				"UpdateSMBIOSMode",
-				"UseRawUuidEncoding"
-			],
+			"required": ["Automatic", "CustomMemory", "Generic", "UpdateDataHub", "UpdateNVRAM", "UpdateSMBIOS", "UpdateSMBIOSMode", "UseRawUuidEncoding"],
 			"additionalProperties": false
 		},
 		"UEFI": {
@@ -1253,14 +1112,7 @@
 							"type": "integer"
 						}
 					},
-					"required": [
-						"EnableJumpstart",
-						"GlobalConnect",
-						"HideVerbose",
-						"JumpstartHotPlug",
-						"MinDate",
-						"MinVersion"
-					],
+					"required": ["EnableJumpstart", "GlobalConnect", "HideVerbose", "JumpstartHotPlug", "MinDate", "MinVersion"],
 					"additionalProperties": false
 				},
 				"AppleInput": {
@@ -1387,13 +1239,7 @@
 								"type": "string"
 							}
 						},
-						"required": [
-							"Arguments",
-							"Comment",
-							"Enabled",
-							"LoadEarly",
-							"Path"
-						],
+						"required": ["Arguments", "Comment", "Enabled", "LoadEarly", "Path"],
 						"additionalProperties": false
 					}
 				},
@@ -1674,28 +1520,8 @@
 					}
 				}
 			},
-			"required": [
-				"APFS",
-				"AppleInput",
-				"Audio",
-				"ConnectDrivers",
-				"Drivers",
-				"Input",
-				"Output",
-				"ProtocolOverrides",
-				"Quirks",
-				"ReservedMemory"
-			]
+			"required": ["APFS", "AppleInput", "Audio", "ConnectDrivers", "Drivers", "Input", "Output", "ProtocolOverrides", "Quirks", "ReservedMemory"]
 		}
 	},
-	"required": [
-		"ACPI",
-		"Booter",
-		"DeviceProperties",
-		"Kernel",
-		"Misc",
-		"NVRAM",
-		"PlatformInfo",
-		"UEFI"
-	]
+	"required": ["ACPI", "Booter", "DeviceProperties", "Kernel", "Misc", "NVRAM", "PlatformInfo", "UEFI"]
 }

@@ -155,7 +155,7 @@
 			},
 			"SecureBootModel: Default": {
 				"type": "info",
-				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers"
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support it"
 			},
 			"Vault: Optional": {
 				"type": "info",
