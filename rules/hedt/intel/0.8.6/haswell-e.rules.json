@@ -7,7 +7,7 @@
 			},
 			"Path: ^(?!((SSDT-OLA(.*)|MALD(.*)).aml))": {
 				"type": "error",
-				"message": "We don't support MaLDon behavior against Hackintosh community and such we recommend using **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine. Please avoid any macOS distribution in the future."
+				"message": "Sanity Checker detected that your config most likely comes from OLARILA. Instead we recommend following **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine, however that doesn't mean you can't use our service :)"
 			},
 			"Enabled: true": {
 				"type": "warning",
@@ -27,7 +27,7 @@
 			},
 			"EnableSafeModeSlide: true": {
 				"type": "warning",
-				"message": "**{0}** must be enabled unless OpenCore log says otherwise"
+				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
 			},
 			"EnableWriteUnprotector: true": {
 				"type": "error",
@@ -39,7 +39,7 @@
 			},
 			"ProvideCustomSlide: true": {
 				"type": "warning",
-				"message": "**{0}** must be enabled unless OpenCore log says otherwise"
+				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
 			},
 			"RebuildAppleMemoryMap: false": {
 				"type": "error",
@@ -47,7 +47,7 @@
 			},
 			"ResizeAppleGpuBars: -1": {
 				"type": "info",
-				"message": "**{0}** should be set to **0** if your GPU supports Resizable Bar"
+				"message": "If your GPU supports *Resizable Bar*, you probably will want to set **{0}** to **0**"
 			},
 			"SetupVirtualMap: true": {
 				"type": "error",
@@ -74,6 +74,16 @@
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
+			"BundlePath: SMCProcessor.kext": {
+				"order": "<VirtualSMC.kext",
+				"type": "warning",
+				"message": "**{0}** (VirtualSMC plugin) isn't here. It's **not necessary** because it's for monitoring Intel CPU temps however if you want to include it - download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"BundlePath: SMCSuperIO.kext": {
+				"order": "<VirtualSMC.kext",
+				"type": "warning",
+				"message": "**{0}** (VirtualSMC plugin) isn't here. It's **not necessary** because it's for monitoring fan speeds, however if you want to include it - download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
 			"BundlePath: WhateverGreen.kext": {
 				"order": "<Lilu.kext",
 				"type": "error",
@@ -99,7 +109,7 @@
 			},
 			"CustomSMBIOSGuid: false": {
 				"type": "info",
-				"message": "**{0}** should be enabled if it's DELL or VIAO system"
+				"message": "If you have DELL or VIAO system, you probably will want to enable **{0}** quirk"
 			},
 			"DisableIoMapper: false": {
 				"type": "warning",
@@ -107,15 +117,15 @@
 			},
 			"LapicKernelPanic: false": {
 				"type": "info",
-				"message": "**{0}** should be enabled if it's HP system"
+				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
 			},
 			"PanicNoKextDump: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "It is recommended to have **{0}** enabled, if you don't know what this quirk does, you should have it enabled"
 			},
 			"PowerTimeoutKernelPanic: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "It is recommended to have **{0}** enabled, so macOS will not kernel panic on setPowerState timeout"
 			},
 			"XhciPortLimit: false": {
 				"type": "info",
@@ -127,7 +137,7 @@
 		"Debug": {
 			"AppleDebug: true": {
 				"type": "info",
-				"message": "**{0}** should be enabled for debugging purposes"
+				"message": "**{0}** should be enabled if you want to have more debugging information"
 			},
 			"ApplePanic: true": {
 				"type": "info",
@@ -139,25 +149,25 @@
 			},
 			"Target: 67": {
 				"type": "info",
-				"message": "**{0}** should be **{1}** for debugging purposes"
+				"message": "**{0}** should be set to **{1}** if you want to have more debugging information"
 			}
 		},
 		"Security": {
 			"AllowSetDefault: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "If you want to allow setting default boot option in OpenCore picker, you should enable **{0}**"
 			},
 			"BlacklistAppleUpdate: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "**{0}** should be enabled to OpenCore ignore boot options trying to update Apple peripheral firmware"
 			},
 			"ScanPolicy: 0": {
 				"type": "info",
-				"message": "**{0}** should be **{1}**. Please keep in mind that you would want to change this value to something more secure after installing macOS"
+				"message": "For installation process, please set **{0}** to **{1}**. Bare in mind that this isn't considered secure value and such, you should learn more **[here](https://dortania.github.io/OpenCore-Post-Install/universal/security/scanpolicy.html)** to learn what value is secure"
 			},
 			"SecureBootModel: Default": {
 				"type": "info",
-				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support it"
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your BIOS)"
 			},
 			"Vault: Optional": {
 				"type": "info",
@@ -179,15 +189,19 @@
 		"Generic": {
 			"MLB: ^(?!(M0000000000000001))": {
 				"type": "error",
-				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+				"message": "Board serial is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			},
+			"ROM: ^(?!(112233000000|112233445566))": {
+				"type": "error",
+				"message": "MAC address is missing. You probably will want it to be your NIC MAC address"
 			},
 			"SystemSerialNumber: ^(?!(W00000000001))": {
 				"type": "error",
-				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+				"message": "Serial number is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
 			},
 			"SystemUUID: ^(?!(00000000-0000-0000-0000-000000000000))": {
 				"type": "error",
-				"message": "Please generate SMBIOS corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+				"message": "UUID is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
 			}
 		}
 	},
@@ -211,7 +225,7 @@
 			},
 			"Path: ^(?!(OpenCore.efi))": {
 				"type": "error",
-				"message": "**{0}** isn't supposed to be here. Please put it in root folder and run OC Snapshot with ProperTree"
+				"message": "**{0}** shouldn't be in this folder. Move it to main directory which is `EFI/OC`"
 			},
 			"Enabled: true": {
 				"type": "warning",
@@ -225,7 +239,7 @@
 			},
 			"UnblockFsConnect: false": {
 				"type": "info",
-				"message": "**{0}** should be enabled if it's HP system"
+				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
 			}
 		}
 	}
