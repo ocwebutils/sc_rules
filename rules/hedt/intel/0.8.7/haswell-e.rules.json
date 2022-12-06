@@ -3,7 +3,7 @@
 		"Add": {
 			"minCount: 1": {
 				"type": "error",
-				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/rocket-lake.html#acpi)**"
+				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config-HEDT/haswell-e.html#acpi)**"
 			},
 			"Path: ^(?!((SSDT-OLA(.*)|MALD(.*)).aml))": {
 				"type": "error",
@@ -21,41 +21,41 @@
 				"type": "error",
 				"message": "**{0}** must be enabled"
 			},
-			"DevirtualiseMmio: true": {
-				"type": "error",
-				"message": "**{0}** must be enabled"
+			"DevirtualiseMmio: false": {
+				"type": "warning",
+				"message": "**{0}** should be disabled if your MOBO doesn't require it"
 			},
 			"EnableSafeModeSlide: true": {
 				"type": "warning",
 				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
 			},
-			"EnableWriteUnprotector: false": {
-				"type": "error",
-				"message": "**{0}** must be disabled"
-			},
-			"ProtectUefiServices: true": {
+			"EnableWriteUnprotector: true": {
 				"type": "error",
 				"message": "**{0}** must be enabled"
+			},
+			"ProtectUefiServices: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
 			},
 			"ProvideCustomSlide: true": {
 				"type": "warning",
 				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
 			},
-			"RebuildAppleMemoryMap: true": {
+			"RebuildAppleMemoryMap: false": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "**{0}** must be disabled"
 			},
 			"ResizeAppleGpuBars: -1": {
 				"type": "info",
 				"message": "If your GPU supports *Resizable Bar*, you probably will want to set **{0}** to **0**"
 			},
-			"SetupVirtualMap: false": {
-				"type": "error",
-				"message": "**{0}** must be disabled"
-			},
-			"SyncRuntimePermissions: true": {
+			"SetupVirtualMap: true": {
 				"type": "error",
 				"message": "**{0}** must be enabled"
+			},
+			"SyncRuntimePermissions: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
 			}
 		}
 	},
@@ -89,37 +89,23 @@
 				"type": "error",
 				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
-			"Path: ^(?!((SMCLightSensor|SMCBatteryManager).kext))": {
-				"type": "error",
-				"message": "**{0}** (VirtualSMC laptop plugin) is for usage on Laptops only. Please remove it from your config"
-			},
 			"Enabled: true": {
 				"type": "warning",
 				"message": "**{0}** is disabled. Please follow **[Dortania's Gathering Files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** subpage to check if this kext is needed for your hardware and enable it"
 			}
 		},
-		"Patch": {
-			"Identifier: com.apple.driver.AppleIntelI210Ethernet": {
-				"type": "error",
-				"message": "**{0}** may be missing. If your MOBO has I225-V controller, make sure to include controller patch that you can find **[here](https://github.com/5T33Z0/Gigabyte-Z490-Vision-G-Hackintosh-OpenCore/blob/main/I225_stock_vs_cstmfw.md)**."
-			},
-			"Identifier: com.apple.driver.AppleRTC": {
-				"type": "error",
-				"message": "**{0}** may be missing. Make sure to include it to disable RTC wake scheduling"
-			},
-			"Enabled: true": {
-				"type": "warning",
-				"message": "**{0}** kernel patch is disabled. Make sure to enable it if you want OpenCore to load it"
-			}
-		},
 		"Quirks": {
 			"AppleCpuPmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you have CFG-Lock enabled"
+				"message": "**{0}** should be enabled if running 10.10 or older and you have CFG-Lock enabled"
 			},
 			"AppleXcpmCfgLock: false": {
 				"type": "warning",
 				"message": "**{0}** should be enabled if you have CFG-Lock enabled <br/>Note: This quirk is necessary only for older versions of macOS"
+			},
+			"AppleXcpmExtraMsrs: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
 			},
 			"CustomSMBIOSGuid: false": {
 				"type": "info",
@@ -159,7 +145,7 @@
 			},
 			"DisableWatchDog: true": {
 				"type": "info",
-				"message": "**{0}** should be enabled if you want to debug early boot issues"
+				"message": "**{0}** should be enabled for debugging early boot issues"
 			},
 			"Target: 67": {
 				"type": "info",
@@ -167,10 +153,6 @@
 			}
 		},
 		"Security": {
-			"AllowNvramReset: true": {
-				"type": "error",
-				"message": "**{0}** must be enabled"
-			},
 			"AllowSetDefault: true": {
 				"type": "error",
 				"message": "If you want to allow setting default boot option in OpenCore picker, you should enable **{0}**"
@@ -194,6 +176,10 @@
 		}
 	},
 	"NVRAM": {
+		"LegacyOverwrite: true": {
+			"type": "error",
+			"message": "**{0}** must be enabled"
+		},
 		"WriteFlash: true": {
 			"type": "error",
 			"message": "**{0}** must be enabled"
@@ -205,7 +191,7 @@
 				"type": "error",
 				"message": "Board serial is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
 			},
-			"ROM: ^(?!(112233000000|112233445566))": {
+			"ROM: ^(?!(ESIzRFVm))": {
 				"type": "error",
 				"message": "MAC address is missing. You probably will want it to be your NIC MAC address"
 			},
@@ -247,9 +233,9 @@
 			}
 		},
 		"Quirks": {
-			"DisableSecurityPolicy: true": {
-				"type": "info",
-				"message": "If you have Microsoft Surface device, you probably will want to enable **{0}** quirk to disable platform security policy. **DO NOT ENABLE** if using *UEFI Secure Boot*"
+			"IgnoreInvalidFlexRatio: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
 			},
 			"UnblockFsConnect: false": {
 				"type": "info",

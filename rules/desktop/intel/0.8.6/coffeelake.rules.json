@@ -109,7 +109,7 @@
 			},
 			"AppleXcpmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you have CFG-Lock enabled"
+				"message": "**{0}** should be enabled if you have CFG-Lock enabled <br/>Note: This quirk is necessary only for older versions of macOS"
 			},
 			"CustomSMBIOSGuid: false": {
 				"type": "info",
@@ -191,7 +191,7 @@
 				"type": "error",
 				"message": "Board serial is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
 			},
-			"ROM: ^(?!(112233000000|112233445566))": {
+			"ROM: ^(?!(ESIzRFVm))": {
 				"type": "error",
 				"message": "MAC address is missing. You probably will want it to be your NIC MAC address"
 			},
