@@ -25,7 +25,7 @@
 			},
 			"Enabled: true": {
 				"type": "error",
-				"message": "**{0}** patch is disabled. <br/>Note: If you are using `SSDT-XOSI`, enable `Change _OSI to XOSI` patch"
+				"message": "**{0}** patch is disabled. Please check if you need this Patch and enable it if it's necessary"
 			}
 		}
 	},

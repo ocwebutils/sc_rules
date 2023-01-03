@@ -54,7 +54,7 @@
 				"rules": "ivybridge.rules.json"
 			},
 			{
-				"name": "Sandy Bridge (2rd)",
+				"name": "Sandy Bridge (2nd)",
 				"codename": "desktop_intel_sandybridge",
 				"rules": "sandybridge.rules.json"
 			},
@@ -93,7 +93,7 @@
 				"rules": "sandy_ivy-e.rules.json"
 			},
 			{
-				"name": "Nehalem (1st, 2rd)",
+				"name": "Nehalem (1st, 2nd)",
 				"codename": "hedt_intel_nehalem",
 				"rules": "nehalem.rules.json"
 			}
@@ -142,7 +142,7 @@
 				"rules": "ivybridge.rules.json"
 			},
 			{
-				"name": "Sandy Bridge (2rd)",
+				"name": "Sandy Bridge (2nd)",
 				"codename": "laptop_intel_sandybridge",
 				"rules": "sandybridge.rules.json"
 			},
