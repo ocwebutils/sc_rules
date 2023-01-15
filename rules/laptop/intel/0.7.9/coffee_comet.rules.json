@@ -47,9 +47,9 @@
 				"type": "error",
 				"message": "**{0}** must be disabled"
 			},
-			"ProtectUefiServices: false": {
+			"ProtectUefiServices: true": {
 				"type": "error",
-				"message": "**{0}** must be disabled"
+				"message": "**{0}** must be enabled"
 			},
 			"ProvideCustomSlide: true": {
 				"type": "warning",
