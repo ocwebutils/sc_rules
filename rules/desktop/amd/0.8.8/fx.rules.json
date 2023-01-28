@@ -71,17 +71,17 @@
 			},
 			"BundlePath: Lilu.kext": {
 				"type": "error",
-				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**{0}** isn't included. <br/>**Purpose**: Kext and process patching <br/>**Instructions how to include**: Download **{0}** from <u>**[Lilu repo](https://github.com/acidanthera/Lilu/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
 			},
 			"BundlePath: VirtualSMC.kext": {
 				"order": "<Lilu.kext",
 				"type": "error",
-				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**{0}** isn't included. <br/>**Purpose**: Apple SMC emulation <br/>**Instructions how to include**: Find **{0}** inside <u>**[VirtualSMC package](https://github.com/acidanthera/virtualsmc/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
 			},
 			"BundlePath: WhateverGreen.kext": {
 				"order": "<Lilu.kext",
 				"type": "error",
-				"message": "**{0}** isn't here. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**{0}** isn't included. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"BundlePath: ^(?!(FakeSMC.kext))": {
 				"type": "error",
@@ -89,7 +89,7 @@
 			},
 			"BundlePath: ^(?!((SMCProcessor|SMCSuperIO|SMCLightSensor|SMCBatteryManager).kext))": {
 				"type": "error",
-				"message": "**{0}** (VirtualSMC plugin) doesn't work on AMD platform. You should consider removing it from your config"
+				"message": "**{0}**  doesn't work on AMD platform. You should consider removing it from your config"
 			},
 			"BundlePath: ^(?!(XHCI-unsupported.kext))": {
 				"type": "error",
@@ -239,15 +239,15 @@
 			},
 			"Path: (.*)HfsPlus.efi": {
 				"type": "error",
-				"message": "**HfsPlus.efi** or **OpenHfsPlus.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "This driver wasn't found inside your config <br/>**Common names**: `HfsPlus.efi`, `OpenHfsPlus.efi` <br/>**Purpose**: Mounts HFS volumes (e.g. macOS Installers/Recovery) <br/>**Instructions how to include**: Find this driver inside <u>**[OpenCorePkg package](https://github.com/acidanthera/OpenCorePkg/releases)**</u>, place it in `OC/Drivers` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
 			},
 			"Path: OpenRuntime.efi": {
 				"type": "error",
-				"message": "**OpenRuntime.efi** isn't here. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "**OpenRuntime.efi** isn't included. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
 			},
 			"Path: ^(?!(OpenCore.efi))": {
 				"type": "error",
-				"message": "**{0}** shouldn't be in this folder. Move it to main directory which is `EFI/OC`"
+				"message": "This shouldn't be in that section! <br/>**Purpose**: Main binary responsible for booting <br/>**Instructions how to remove it**: Move this binary to root directory (`EFI/OC`) and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
 			},
 			"Enabled: true": {
 				"type": "warning",
