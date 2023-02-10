@@ -108,7 +108,7 @@
 			},
 			{
 				"name": "Coffee Lake Plus, Comet Lake (9th, 10th)",
-				"codename": "laptop_intel_cofee_comet",
+				"codename": "laptop_intel_coffee_comet",
 				"rules": "coffee_comet.rules.json"
 			},
 			{
