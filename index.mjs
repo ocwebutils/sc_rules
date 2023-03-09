@@ -4,7 +4,9 @@ import { join } from "node:path";
 
 const getFilesRecursively = directory => {
 	return readdirSync(directory, { withFileTypes: true }).flatMap(file =>
-		file.isDirectory() ? getFilesRecursively(join(directory, file.name)) : join(directory, file.name)
+		file.isDirectory()
+			? getFilesRecursively(join(directory, file.name))
+			: join(directory, file.name)
 	);
 };
 
@@ -25,8 +27,17 @@ const createList = () => {
 			});
 		}
 
-		const f = mergedList.reduce((m, { cpu: n, ocversion: v }) => ({ ...m, [n]: [...(m[n] || []), v].flat(1) }), {});
-		const returnList = Object.entries(f).map(([n, v]) => ({ codename: n, supportedVersions: v }));
+		const mergeObjects = mergedList.reduce(
+			(m, { cpu: n, ocversion: v }) => ({
+				...m,
+				[n]: [...(m[n] || []), v].flat(1)
+			}),
+			{}
+		);
+		const returnList = Object.entries(mergeObjects).map(([n, v]) => ({
+			codename: n,
+			supportedVersions: v
+		}));
 
 		return returnList;
 	},
