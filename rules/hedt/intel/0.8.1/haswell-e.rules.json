@@ -97,11 +97,11 @@
 		"Quirks": {
 			"AppleCpuPmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if running 10.10 or older and you have CFG-Lock enabled"
+				"message": "**{0}** should be enabled if you cannot disable CFG-Lock <br/>Note: This quirk is required for Ivy Bridge and older - or Broadwell and older if running macOS 10.10 or prior"
 			},
 			"AppleXcpmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you have CFG-Lock enabled <br/>Note: This quirk is necessary only for older versions of macOS"
+				"message": "**{0}** should be enabled if you cannot disable CFG-Lock <br/>Note: This quirk is required for Haswell and newer"
 			},
 			"AppleXcpmExtraMsrs: true": {
 				"type": "error",

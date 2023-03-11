@@ -107,7 +107,7 @@
 		"Emulate": {
 			"DummyPowerManagement: true": {
 				"type": "error",
-				"message": "To disable `AppleIntelCpuPowerManagement` you should have **{0}** disabled (AMD CPUs don't work with Intel CPU Power Management)"
+				"message": "To disable `AppleIntelCpuPowerManagement` you should have **{0}** enabled (AMD CPUs don't work with Intel CPU Power Management)"
 			}
 		},
 		"Patch": {
@@ -121,14 +121,6 @@
 			}
 		},
 		"Quirks": {
-			"AppleCpuPmCfgLock: false": {
-				"type": "warning",
-				"message": "**{0}** should be enabled if you have CFG-Lock enabled"
-			},
-			"AppleXcpmCfgLock: false": {
-				"type": "warning",
-				"message": "**{0}** should be enabled if you have CFG-Lock enabled <br/>Note: This quirk is necessary only for older versions of macOS"
-			},
 			"CustomSMBIOSGuid: false": {
 				"type": "info",
 				"message": "If you have DELL or VIAO system, you probably will want to enable **{0}** quirk"
