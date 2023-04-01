@@ -11,7 +11,7 @@
 			},
 			"Path: ^(?!(DSDT.aml))": {
 				"type": "error",
-				"message": "You shouldn't include **{0}** in your config."
+				"message": "You shouldn't include **{0}** in your config"
 			},
 			"Enabled: true": {
 				"type": "warning",

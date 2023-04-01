@@ -9,6 +9,10 @@
 				"type": "error",
 				"message": "Sanity Checker detected that your config most likely comes from OLARILA. Instead we recommend following **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine, however that doesn't mean you can't use our service :)"
 			},
+			"Path: ^(?!(DSDT.aml))": {
+				"type": "error",
+				"message": "You shouldn't include **{0}** in your config"
+			},
 			"Path: SSDT-PMC.aml": {
 				"type": "warning",
 				"message": "Keep in mind that **{0}** shouldn't be used on Comet Lake"
