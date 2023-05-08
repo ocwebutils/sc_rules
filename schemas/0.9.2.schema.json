@@ -1485,6 +1485,9 @@
 						"IgnoreTextInGraphics": {
 							"type": "boolean"
 						},
+						"InitialMode": {
+							"type": "string"
+						},
 						"ProvideConsoleGop": {
 							"type": "boolean"
 						},
@@ -1521,6 +1524,7 @@
 						"GopBurstMode",
 						"GopPassThrough",
 						"IgnoreTextInGraphics",
+						"InitialMode",
 						"ProvideConsoleGop",
 						"ReconnectGraphicsOnConnect",
 						"ReconnectOnResChange",
