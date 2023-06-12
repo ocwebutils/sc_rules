@@ -1,0 +1,262 @@
+{
+	"ACPI": {
+		"Add": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/sandy-bridge.html#acpi)**"
+			},
+			"Path: ^(?!((SSDT-OLA(.*)|MALD(.*)).aml))": {
+				"type": "error",
+				"message": "Sanity Checker detected that your config most likely comes from OLARILA. Instead we recommend following **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine, however that doesn't mean you can't use our service :)"
+			},
+			"Path: ^(?!(DSDT.aml))": {
+				"type": "error",
+				"message": "You shouldn't include **{0}** in your config"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** ACPI is disabled. Please check if you need this ACPI and enable it if it's necessary"
+			}
+		},
+		"Delete": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/config.plist/sandy-bridge.html#acpi)**"
+			},
+			"Enabled: true": {
+				"type": "error",
+				"message": "**{0}** patch is disabled. Please check if you need this Patch and enable it if it's necessary. <br/>Note: Make sure to enable CpuPm & Cpu0Ist patch **if you don't have generated SSDT-PM ACPI**"
+			}
+		}
+	},
+	"Booter": {
+		"Quirks": {
+			"AvoidRuntimeDefrag: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"DevirtualiseMmio: false": {
+				"type": "warning",
+				"message": "**{0}** should be disabled if your MOBO doesn't require it"
+			},
+			"EnableSafeModeSlide: true": {
+				"type": "warning",
+				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
+			},
+			"EnableWriteUnprotector: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"ProtectUefiServices: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			},
+			"ProvideCustomSlide: true": {
+				"type": "warning",
+				"message": "If OpenCore log says that you need to enable **{0}**, you probably should do it"
+			},
+			"RebuildAppleMemoryMap: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			},
+			"ResizeAppleGpuBars: -1": {
+				"type": "info",
+				"message": "If your GPU supports *Resizable Bar*, you probably will want to set **{0}** to **0**"
+			},
+			"SetupVirtualMap: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"SyncRuntimePermissions: false": {
+				"type": "error",
+				"message": "**{0}** must be disabled"
+			}
+		}
+	},
+	"Kernel": {
+		"Add": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Kexts. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)**"
+			},
+			"BundlePath: Lilu.kext": {
+				"type": "error",
+				"message": "**{0}** isn't included. <br/>**Purpose**: Kext and process patching <br/>**Instructions how to include**: Download **{0}** from <u>**[Lilu repo](https://github.com/acidanthera/Lilu/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"BundlePath: VirtualSMC.kext": {
+				"order": "<Lilu.kext",
+				"type": "error",
+				"message": "**{0}** isn't included. <br/>**Purpose**: Apple SMC emulation <br/>**Instructions how to include**: Find **{0}** inside <u>**[VirtualSMC package](https://github.com/acidanthera/virtualsmc/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"BundlePath: SMCProcessor.kext": {
+				"order": "<VirtualSMC.kext",
+				"type": "warning",
+				"message": "**{0}** isn't included. <br/>**Purpose**: **VirtualSMC** plugin for monitoring Intel CPU temperatures <br/>**Instructions how to include**: Find **{0}** inside <u>**[VirtualSMC package](https://github.com/acidanthera/virtualsmc/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"BundlePath: SMCSuperIO.kext": {
+				"order": "<VirtualSMC.kext",
+				"type": "warning",
+				"message": "**{0}** isn't included. <br/>**Purpose**: **VirtualSMC** plugin for monitoring fan speeds <br/>**Instructions how to include**: Find **{0}** inside <u>**[VirtualSMC package](https://github.com/acidanthera/virtualsmc/releases)**</u>, place it in `OC/Kexts` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"BundlePath: WhateverGreen.kext": {
+				"order": "<Lilu.kext",
+				"type": "error",
+				"message": "**{0}** isn't included. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+			},
+			"BundlePath: ^(?!((SMCLightSensor|SMCBatteryManager).kext))": {
+				"type": "error",
+				"message": "**{0}** shouldn't be included! <br/>**Purpose**: **VirtualSMC** plugin for ambient light sensor/measuring battery readout on laptop <br/>**Instructions how to remove it**: Remove this kext from `OC/Kexts` and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"BundlePath: ^(?!(USBInjectAll.kext))": {
+				"type": "warning",
+				"message": "**{0}** isn't recommended for injecting ports. <br/>**Purpose**: Tries to inject all ports <br/>**Recommended way**: Map your USB ports with <u>**[USBToolBox](https://github.com/USBToolBox/tool/releases)**</u>"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** is disabled. Please follow **[Dortania's Gathering Files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** subpage to check if this kext is needed for your hardware and enable it"
+			}
+		},
+		"Quirks": {
+			"AppleCpuPmCfgLock: false": {
+				"type": "warning",
+				"message": "**{0}** should be enabled if you cannot disable CFG-Lock <br/>Note: This quirk is required for Ivy Bridge and older - or Broadwell and older if running macOS 10.10 or prior"
+			},
+			"CustomSMBIOSGuid: false": {
+				"type": "info",
+				"message": "If you have DELL or VIAO system, you probably will want to enable **{0}** quirk"
+			},
+			"DisableIoMapper: false": {
+				"type": "warning",
+				"message": "**{0}** should be enabled if VT-D is enabled in BIOS"
+			},
+			"LapicKernelPanic: false": {
+				"type": "info",
+				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
+			},
+			"PanicNoKextDump: true": {
+				"type": "error",
+				"message": "It is recommended to have **{0}** enabled, if you don't know what this quirk does, you should have it enabled"
+			},
+			"PowerTimeoutKernelPanic: true": {
+				"type": "error",
+				"message": "It is recommended to have **{0}** enabled, so macOS will not kernel panic on setPowerState timeout"
+			},
+			"XhciPortLimit: false": {
+				"type": "info",
+				"message": "**{0}** must be disabled for macOS 11.3+. <br/>Note: To map USB ports on `Windows` you can use **[USBToolBox](https://github.com/USBToolBox/tool)**. This tool can't map EHCI controllers. Unfortunately, there is no `Linux` tool that allows to do it"
+			}
+		}
+	},
+	"Misc": {
+		"Debug": {
+			"AppleDebug: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled if you want to have more debugging information"
+			},
+			"ApplePanic: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled if you want to log kernel panics to disk"
+			},
+			"DisableWatchDog: true": {
+				"type": "info",
+				"message": "**{0}** should be enabled for debugging early boot issues"
+			},
+			"Target: 67": {
+				"type": "info",
+				"message": "**{0}** should be set to **{1}** if you want to have more debugging information"
+			}
+		},
+		"Security": {
+			"AllowSetDefault: true": {
+				"type": "error",
+				"message": "If you want to allow setting default boot option in OpenCore picker, you should enable **{0}**"
+			},
+			"BlacklistAppleUpdate: true": {
+				"type": "error",
+				"message": "**{0}** should be enabled to OpenCore ignore boot options trying to update Apple peripheral firmware"
+			},
+			"ScanPolicy: 0": {
+				"type": "info",
+				"message": "For installation process, please set **{0}** to **{1}**. Bare in mind that this isn't considered secure value and such, you should learn more **[here](https://dortania.github.io/OpenCore-Post-Install/universal/security/scanpolicy.html)** to learn what value is secure"
+			},
+			"SecureBootModel: Default": {
+				"type": "info",
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your BIOS)"
+			},
+			"Vault: Optional": {
+				"type": "info",
+				"message": "**{0}** should be **Enabled** if you want to enable OpenCore vaulting mechanism"
+			}
+		}
+	},
+	"NVRAM": {
+		"WriteFlash: true": {
+			"type": "error",
+			"message": "**{0}** must be enabled"
+		}
+	},
+	"PlatformInfo": {
+		"Generic": {
+			"MLB: ^(?!(M0000000000000001))": {
+				"type": "error",
+				"message": "Board serial is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			},
+			"ROM: ^(?!(ESIzRFVm))": {
+				"type": "error",
+				"message": "MAC address is missing. You probably will want it to be your NIC MAC address"
+			},
+			"SystemSerialNumber: ^(?!(W00000000001))": {
+				"type": "error",
+				"message": "Serial number is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			},
+			"SystemUUID: ^(?!(00000000-0000-0000-0000-000000000000))": {
+				"type": "error",
+				"message": "UUID is missing. Please generate it corresponding to model specified in config by using **[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)**"
+			}
+		}
+	},
+	"UEFI": {
+		"ConnectDrivers: true": {
+			"type": "error",
+			"message": "**{0}** must be enabled"
+		},
+		"Drivers": {
+			"minCount: 1": {
+				"type": "error",
+				"message": "You may be missing Drivers. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)**"
+			},
+			"Path: (.*)HfsPlus(.*).efi": {
+				"type": "error",
+				"message": "This driver wasn't found inside your config <br/>**Common names**: `HfsPlus.efi`, `OpenHfsPlus.efi`, `HfsPlusLegacy.efi` <br/>**Purpose**: Mounts HFS volumes (e.g. macOS Installers/Recovery) <br/>**Instructions how to include**: Find this driver inside <u>**[OpenCorePkg package](https://github.com/acidanthera/OpenCorePkg/releases)**</u>, place it in `OC/Drivers` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"Path: OpenRuntime.efi": {
+				"type": "error",
+				"message": "**{0}** isn't included. <br/>**Purpose**: Patches boot.efi for NVRAM fixes and better memory management<br/>**Instructions how to include**: Find **{0}** inside <u>**[OpenCorePkg package](https://github.com/acidanthera/OpenCorePkg/releases)**</u>, place it in `OC/Drivers` folder and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"Path: ^(?!(OpenCore.efi))": {
+				"type": "error",
+				"message": "This shouldn't be in that section! <br/>**Purpose**: Main binary responsible for booting <br/>**Instructions how to remove it**: Move this binary to root directory (`EFI/OC`) and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
+			},
+			"Enabled: true": {
+				"type": "warning",
+				"message": "**{0}** driver is disabled. Please check if you need this driver and enable it if it's necessary"
+			}
+		},
+		"Input": {
+			"KeySupport: false": {
+				"type": "info",
+				"message": "**{0}** should be enabled if your BIOS supports UEFI"
+			}
+		},
+		"Quirks": {
+			"IgnoreInvalidFlexRatio: true": {
+				"type": "error",
+				"message": "**{0}** must be enabled"
+			},
+			"UnblockFsConnect: false": {
+				"type": "info",
+				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
+			}
+		}
+	}
+}
