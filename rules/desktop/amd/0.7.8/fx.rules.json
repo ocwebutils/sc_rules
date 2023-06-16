@@ -119,7 +119,7 @@
 				"type": "error",
 				"message": "You may be missing AMD patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)**"
 			},
-			"maxCount: 20": {
+			"maxCount: 22": {
 				"type": "error",
 				"message": "You may not have actual AMD patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)**"
 			}
