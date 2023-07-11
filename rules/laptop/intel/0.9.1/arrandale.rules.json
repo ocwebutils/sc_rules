@@ -11,7 +11,7 @@
 			},
 			"Path: ^(?!(DSDT.aml))": {
 				"type": "error",
-				"message": "You shouldn't include **{0}** in your config"
+				"message": "This DSDT dump of your firmware shouldn't be included, instead you should make separate patches for things you need. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` in <u>**[ProperTree](https://github.com/corpnewt/ProperTree)**</u>"
 			},
 			"Enabled: true": {
 				"type": "warning",
