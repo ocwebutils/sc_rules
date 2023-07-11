@@ -134,7 +134,7 @@
 			},
 			"XhciPortLimit: false": {
 				"type": "info",
-				"message": "**{0}** must be disabled for macOS 11.3+. <br/>Note: To map USB ports on `Windows` you can use **[USBToolBox](https://github.com/USBToolBox/tool)**. This tool can't map EHCI controllers. Unfortunately, there is no `Linux` tool that allows to do it"
+				"message": "This quirk patches various kexts to remove USB port count limit of 15 ports. It's recommended to be **disabled** for macOS 11.3 and higher. <br/>Note: To map USB ports on `Windows` you can use <u>**[USBToolBox](https://github.com/USBToolBox/tool)**</u>. This tool can't map EHCI controllers. On `macOS` you can use <u>**[USBMap](https://github.com/corpnewt/USBMap)**</u>. Unfortunately, there is no `Linux` tool that allows to do it"
 			}
 		}
 	},
