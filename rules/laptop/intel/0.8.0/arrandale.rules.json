@@ -32,12 +32,12 @@
 				"message": "**{0}** must be disabled if it's Legacy"
 			},
 			"DevirtualiseMmio: false": {
-				"type": "warning",
-				"message": "**{0}** should be disabled if your MOBO doesn't require it"
+				"type": "error",
+				"message": "This quirk removes runtime attribute from certain MMIO regions. This quirk typically frees between 64 and 256 megabytes of memory, present in the debug log, and on some platforms, is the only way to boot macOS, which otherwise fails with allocation errors at the bootloader stage. Since it's dependent on your *Motherboard*, you should experiment with it **enabled** and **disabled**"
 			},
 			"EnableSafeModeSlide: true": {
 				"type": "warning",
-				"message": "**{0}** must be disabled if it's Legacy or OpenCore log says to disable it"
+				"message": "If you are failing to boot into macOS Safe Mode, you can try enabling this quirk. This quirk also requires `ProvideCustomClide` to be **enabled**"
 			},
 			"EnableWriteUnprotector: true": {
 				"type": "warning",
@@ -45,19 +45,19 @@
 			},
 			"ProtectUefiServices: false": {
 				"type": "error",
-				"message": "**{0}** must be disabled"
+				"message": "This quirk protects UEFI services from being overridden by the firmware. Modern firmware may update pointers to UEFI services during driver loading and may affect other quirks, however it's recommended to have this quirk **disabled**"
 			},
 			"ProvideCustomSlide: true": {
 				"type": "warning",
 				"message": "**{0}** must be disabled if it's Legacy or OpenCore log says to disable it"
 			},
-			"RebuildAppleMemoryMap: false": {
+			"RebuildAppleMemoryMap: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled if it's Legacy or macOS 10.7 and above"
+				"message": "This quirk generates macOS compatible memory map. It's recommended to be **enabled** if it's Legacy system or you're running macOS 10.7 and above"
 			},
 			"ResizeAppleGpuBars: -1": {
 				"type": "info",
-				"message": "If your GPU supports *Resizable Bar*, you probably will want to set **{0}** to **0**"
+				"message": "This quirk reduces GPU PCI BAR sizes for compatibility with macOS. If your GPU supports *Resizable Bar* and you have this option enabled in UEFI, it's recommended to be `0` to avoid any boot issues"
 			},
 			"SetupVirtualMap: false": {
 				"type": "warning",
@@ -65,7 +65,7 @@
 			},
 			"SyncRuntimePermissions: false": {
 				"type": "error",
-				"message": "**{0}** must be disabled"
+				"message": "This quirk updates memory permissions for the runtime environment. The need for this quirk is indicated by early boot failures, however it's recommended to be **disabled**"
 			}
 		}
 	},
@@ -101,45 +101,45 @@
 			},
 			"BundlePath: ^(?!(USBInjectAll.kext))": {
 				"type": "warning",
-				"message": "**{0}** isn't recommended for injecting ports. <br/>**Purpose**: Tries to inject all ports <br/>**Recommended way**: Map your USB ports with <u>**[USBToolBox](https://github.com/USBToolBox/tool/releases)**</u>"
+				"message": "**{0}** isn't recommended for injecting ports. <br/>**Purpose**: Tries to inject all ports <br/>**Recommended way**: Map your USB ports with <u>**[USBToolBox](https://github.com/USBToolBox/tool)**</u> or <u>**[USBMap](https://github.com/corpnewt/USBMap)**</u>"
 			},
 			"Enabled: true": {
 				"type": "warning",
-				"message": "**{0}** is disabled. Please follow **[Dortania's Gathering Files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** subpage to check if this kext is needed for your hardware and enable it"
+				"message": "Kext **{0}** is disabled. Please refer to **[Dortania's Gathering Files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** to see if it needs to be enabled and is needed for your hardware"
 			}
 		},
 		"Quirks": {
 			"AppleCpuPmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you cannot disable CFG-Lock <br/>Note: This quirk is required for Ivy Bridge and older - or Broadwell and older if running macOS 10.10 or prior"
+				"message": "This quirk disables `PKG_CST_CONFIG_CONTROL` MSR modification in `AppleIntelCPUPowerManagement.kext`, commonly causing early kernel panic, when it's locked from writing. It's recommended to be **enabled** if you cannot disable CFG-Lock. Applies to Ivy Bridge and older - or Broadwell and older if running macOS 10.10 or older"
 			},
 			"AppleXcpmCfgLock: false": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you cannot disable CFG-Lock <br/>Note: This quirk is required for Haswell and newer"
+				"message": "This quirk disables `PKG_CST_CONFIG_CONTROL` MSR modification in XNU, commonly causing early kernel panic, when it's locked from writing. It's recommended to be **enabled** if you cannot disable CFG-Lock. Applies to Haswell and newer"
 			},
 			"CustomSMBIOSGuid: false": {
 				"type": "info",
-				"message": "If you have DELL or VIAO system, you probably will want to enable **{0}** quirk"
+				"message": "This quirk performs GUID patching for `UpdateSMBIOSMode`: `Custom` mode. It's recommended to be **disabled** if you don't own *DELL* or *VIAO* device"
 			},
 			"DisableIoMapper: false": {
-				"type": "warning",
-				"message": "**{0}** should be enabled if VT-D is enabled in BIOS"
+				"type": "error",
+				"message": "This quirk disables `IOMapper` support in XNU, which may conflict with the firmware implementation. It's recommended to be **enabled** if you have enabled `VT-D` in BIOS to avoid booting issues"
 			},
 			"LapicKernelPanic: false": {
 				"type": "info",
-				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
+				"message": "This quirk disables kernel panic on LAPIC interrupts. It's recommended to be **disabled** if you don't own *HP* device"
 			},
 			"PanicNoKextDump: true": {
 				"type": "error",
-				"message": "It is recommended to have **{0}** enabled, if you don't know what this quirk does, you should have it enabled"
+				"message": "This quirk prevents kernel from printing kext dump in the panic log preventing from observing panic details. It's recommended to be **enabled**. Affects macOS 10.13 and higher"
 			},
 			"PowerTimeoutKernelPanic: true": {
 				"type": "error",
-				"message": "It is recommended to have **{0}** enabled, so macOS will not kernel panic on setPowerState timeout"
+				"message": "This quirk disables kernel panic on *setPowerState* timeout. It's recommended to be **enabled**"
 			},
 			"XhciPortLimit: false": {
 				"type": "info",
-				"message": "**{0}** must be disabled for macOS 11.3+. <br/>Note: To map USB ports on `Windows` you can use **[USBToolBox](https://github.com/USBToolBox/tool)**. Unfortunately, there is no `Linux` tool that allows to do it"
+				"message": "This quirk patches various kexts to remove USB port count limit of 15 ports. It's recommended to be **disabled** for macOS 11.3 and higher. <br/>Note: To map USB ports on `Windows` you can use <u>**[USBToolBox](https://github.com/USBToolBox/tool)**</u>.  On `macOS` you can use <u>**[USBMap](https://github.com/corpnewt/USBMap)**</u>. Unfortunately, there is no `Linux` tool that allows to do it"
 			}
 		}
 	},
@@ -147,33 +147,33 @@
 		"Debug": {
 			"AppleDebug: true": {
 				"type": "info",
-				"message": "**{0}** should be enabled if you want to have more debugging information"
+				"message": "This quirk enables writing the `boot.efi` debug log to the OpenCore log. It's recommended to be **disabled** if you don't need it in your OpenCore log. Applies to macOS 10.15.4 and higher"
 			},
 			"ApplePanic: true": {
 				"type": "info",
-				"message": "**{0}** should be enabled if you want to log kernel panics to disk"
+				"message": "This quirk saves macOS kernel panic output to the OpenCore root partition. It's recommended to be **disabled** if you don't need to have kernel panics on EFI partition"
 			},
 			"DisableWatchDog: true": {
 				"type": "info",
-				"message": "**{0}** should be enabled for debugging early boot issues"
+				"message": "This quirk disables the watchdog timer. Some types of firmware may not succeed in booting the operating system quickly, especially in debug mode. This results in the watchdog timer aborting the process. It's recommended to be **enabled**"
 			},
 			"Target: 67": {
 				"type": "info",
-				"message": "**{0}** should be set to **{1}** if you want to have more debugging information"
+				"message": "This quirk is a bitmask of enabled logging targets. Common value is **{1}**, however if you want to have more or less information, **[click here for more information](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/debug.html#config-changes)**"
 			}
 		},
 		"Security": {
 			"AllowNvramReset: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "This quirk allows to reset Nvram with `⌘+OPT+P+R` key sequence or with `Nvram Reset` entry in picker. It's recommended to be **enabled**"
 			},
 			"AllowSetDefault: true": {
-				"type": "error",
-				"message": "If you want to allow setting default boot option in OpenCore picker, you should enable **{0}**"
+				"type": "warning",
+				"message": "This quirk allows `CTRL+Enter` and `Ctrl+<Index>` handling to set the default boot option in the picker. It's recommended to be **enabled**"
 			},
 			"BlacklistAppleUpdate: true": {
 				"type": "error",
-				"message": "**{0}** should be enabled to OpenCore ignore boot options trying to update Apple peripheral firmware"
+				"message": "This quirk ignores boot options trying to update Apple peripheral firmware. It's required to be **enabled** on non-native Apple hardware. Affects macOS Big Sur and higher"
 			},
 			"ScanPolicy: 0": {
 				"type": "info",
@@ -185,14 +185,14 @@
 			},
 			"Vault: Optional": {
 				"type": "info",
-				"message": "**{0}** should be **Enabled** if you want to enable OpenCore vaulting mechanism"
+				"message": "This quirk enables the OpenCore vaulting mechanism. It's recommended to be **Optional** if you don't have `vault.plist` file with SHA-256 hashes of all files used by OpenCore"
 			}
 		}
 	},
 	"NVRAM": {
 		"WriteFlash: true": {
 			"type": "error",
-			"message": "**{0}** must be enabled"
+			"message": "This quirk enables writing to flash memory (Nvram) for all added variables. It's recommended to be **enabled**"
 		}
 	},
 	"PlatformInfo": {
@@ -203,7 +203,7 @@
 			},
 			"ROM: ^(?!(ESIzRFVm))": {
 				"type": "error",
-				"message": "MAC address is missing. You probably will want it to be your NIC MAC address"
+				"message": "MAC address is missing. It's recommended to be made up with OUI (Organizationally Unique Identifier) that corresponds to real Apple interface. It's supposed to be in lowercase and without colons. Please visit **[Fixing iServices: Choose a MAC Address](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#choose-a-mac-address)** and **[Fixing iServices: Derive the corresponding ROM Value](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#derive-the-corresponding-rom-value)** for more information"
 			},
 			"SystemSerialNumber: ^(?!(W00000000001))": {
 				"type": "error",
@@ -218,7 +218,7 @@
 	"UEFI": {
 		"ConnectDrivers: true": {
 			"type": "error",
-			"message": "**{0}** must be enabled"
+			"message": "This quirk performs UEFI controller connection after driver loading. It's useful for e.g. filesystem (HfsPlus) or audio drivers. It's recommended to be **enabled**"
 		},
 		"Drivers": {
 			"minCount: 1": {
@@ -239,11 +239,11 @@
 			},
 			"Path: OpenUsbKbDxe.efi": {
 				"type": "warning",
-				"message": "**{0}** should be added if your BIOS doesn't support UEFI"
+				"message": "**{0}** should be added if your BIOS doesn't support UEFI. If you have already added it, please ignore this warning"
 			},
 			"Enabled: true": {
 				"type": "warning",
-				"message": "**{0}** driver is disabled. Please check if you need this driver and enable it if it's necessary"
+				"message": "Driver **{0}** is disabled. Please refer to **[Gathering files](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** to see if it needs to be enabled and is needed for your hardware"
 			}
 		},
 		"Input": {
@@ -255,11 +255,11 @@
 		"Quirks": {
 			"DisableSecurityPolicy: true": {
 				"type": "info",
-				"message": "If you have Microsoft Surface device, you probably will want to enable **{0}** quirk to disable platform security policy. **DO NOT ENABLE** if using *UEFI Secure Boot*"
+				"message": "This quirk disables platform security policy. It's recommended to be **disabled** if you don't own *Microsoft Surface* device. **DO NOT ENABLE** if using *UEFI Secure Boot*"
 			},
 			"IgnoreInvalidFlexRatio: true": {
 				"type": "error",
-				"message": "**{0}** must be enabled"
+				"message": "This quirk allows to ignore invalid values in the `MSR_FLEX_RATIO` MSR register. It's recommended to be **enabled**"
 			},
 			"ReleaseUsbOwnership: true": {
 				"type": "warning",
@@ -267,7 +267,7 @@
 			},
 			"UnblockFsConnect: false": {
 				"type": "info",
-				"message": "If you have HP system, you probably will want to enable **{0}** quirk"
+				"message": "This quirk unblocks ability to install File System protocols sometimes blocked by some types of firmwares. It's recommended to be **disabled** if you don't own *HP* device"
 			}
 		}
 	}
