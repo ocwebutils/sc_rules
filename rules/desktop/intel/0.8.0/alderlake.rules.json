@@ -31,7 +31,8 @@
 			},
 			"EnableSafeModeSlide: true": {
 				"type": "warning",
-				"message": "If you are failing to boot into macOS Safe Mode, you can try enabling this quirk. This quirk also requires `ProvideCustomClide` to be **enabled**"
+				"requires": "Booter/Quirks/ProvideCustomSlide: true",
+				"message": "If you are failing to boot into macOS Safe Mode, you can try enabling this quirk"
 			},
 			"EnableWriteUnprotector: false": {
 				"type": "error",
