@@ -40,7 +40,7 @@
 			},
 			"ProtectUefiServices: false": {
 				"type": "warning",
-				"message": "**{0}** must be enabled on Z370 boards"
+				"message": "This quirk protects UEFI services from being overridden by the firmware. Modern firmware may update pointers to UEFI services during driver loading and may affect other quirks. It's recommended to be **disabled** unless you're on *Z370* motherboard"
 			},
 			"ProvideCustomSlide: true": {
 				"type": "warning",
