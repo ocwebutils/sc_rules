@@ -126,7 +126,7 @@
 			},
 			"DisableIoMapper: false": {
 				"type": "error",
-				"message": "This quirk disables `IOMapper` support in XNU, which may conflict with the firmware implementation. It's recommended to be **enabled** if you have enabled `VT-D` in BIOS to avoid booting issues"
+				"message": "This quirk disables `IOMapper` support in XNU, which may conflict with the firmware implementation. It's recommended to be **disabled** if you don't have enabled `VT-D` in BIOS/UEFI"
 			},
 			"LapicKernelPanic: false": {
 				"type": "info",
@@ -180,7 +180,7 @@
 			},
 			"SecureBootModel: Default": {
 				"type": "info",
-				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your BIOS)"
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your BIOS/UEFI)"
 			},
 			"Vault: Optional": {
 				"type": "info",
@@ -238,7 +238,7 @@
 			},
 			"Path: OpenUsbKbDxe.efi": {
 				"type": "warning",
-				"message": "**{0}** should be added if your BIOS doesn't support UEFI. If you have already added it, please ignore this warning"
+				"message": "**{0}** should be added if your BIOS/UEFI doesn't support UEFI. If you have already added it, please ignore this warning"
 			},
 			"Enabled: true": {
 				"type": "warning",
@@ -248,7 +248,7 @@
 		"Input": {
 			"KeySupport: false": {
 				"type": "info",
-				"message": "**{0}** should be enabled if your BIOS supports UEFI"
+				"message": "**{0}** should be enabled if your BIOS/UEFI supports UEFI"
 			}
 		},
 		"Quirks": {
@@ -258,7 +258,7 @@
 			},
 			"ReleaseUsbOwnership: true": {
 				"type": "warning",
-				"message": "**{0}** should be enabled if you have XHCI Hand-Off **disabled** in BIOS"
+				"message": "**{0}** should be enabled if you have XHCI Hand-Off **disabled** in BIOS/UEFI"
 			},
 			"UnblockFsConnect: false": {
 				"type": "info",
