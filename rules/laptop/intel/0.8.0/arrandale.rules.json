@@ -38,7 +38,7 @@
 			"EnableSafeModeSlide: true": {
 				"type": "warning",
 				"requires": "Booter/Quirks/ProvideCustomSlide: true",
-				"message": "If you are failing to boot into macOS Safe Mode, you can try enabling this quirk"
+				"message": "This quirk patches bootloader to have KASLR enabled in safe mode. If you are failing to boot into macOS safe mode, there is possibility that **enabling** it will resolve booting issues"
 			},
 			"EnableWriteUnprotector: true": {
 				"type": "warning",
