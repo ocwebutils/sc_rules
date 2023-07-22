@@ -127,7 +127,7 @@
 				"message": "This quirk performs GUID patching for `UpdateSMBIOSMode`: `Custom` mode. It's recommended to be **disabled** if you don't own *DELL* or *VIAO* device"
 			},
 			"DisableIoMapper: false": {
-				"type": "error",
+				"type": "warning",
 				"message": "This quirk disables `IOMapper` support in XNU, which may conflict with the firmware implementation. It's recommended to be **disabled** if you don't have enabled `VT-D` in BIOS/UEFI"
 			},
 			"LapicKernelPanic: false": {
@@ -152,7 +152,7 @@
 		"Debug": {
 			"AppleDebug: true": {
 				"type": "info",
-				"message": "This quirk enables writing the `boot.efi` debug log to the OpenCore log. It's recommended to be **disabled** if OpenCore log doesn't mentions it or tells to enable it. Applies to macOS 10.15.4 and higher"
+				"message": "This quirk enables writing the `boot.efi` debug log to the OpenCore log. It's recommended to be **disabled** if OpenCore log doesn't mention it or tells to enable it. Applies to macOS 10.15.4 and higher"
 			},
 			"ApplePanic: true": {
 				"type": "info",
@@ -186,7 +186,7 @@
 			},
 			"SecureBootModel: Default": {
 				"type": "info",
-				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your BIOS/UEFI)"
+				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your UEFI)"
 			},
 			"Vault: Optional": {
 				"type": "info",
