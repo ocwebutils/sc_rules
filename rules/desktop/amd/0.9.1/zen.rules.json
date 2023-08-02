@@ -3,23 +3,23 @@
 		"Add": {
 			"minCount: 1": {
 				"type": "error",
-				"message": "You may be missing SSDTs. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#acpi)**"
+				"message": "The `ACPI/Add` section appears to be empty, suggesting that you may be lacking SSDTs. You can discover information about SSDTs on the [Getting Started With ACPI: Choosing the SSDTs](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html) page and include the necessary SSDTs for your hardware in the config. \nTo include SSDTs in config you should position them in `EFI/OC/ACPI` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Path: ^(?!((SSDT-OLA(.*)|MALD(.*)).aml))": {
 				"type": "error",
-				"message": "Sanity Checker detected that your config most likely comes from OLARILA. Instead we recommend following **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine, however that doesn't mean you can't use our service :)"
+				"message": "Sanity Checker detected that your config most likely comes from OLARILA. We recommend following **[Dortania's OC Install Guide](https://dortania.github.io/OpenCore-Install-Guide/)** to install VANILLA macOS on your machine, however that doesn't mean you can't use our service :)"
 			},
 			"Path: ^(?!(DSDT.aml))": {
 				"type": "error",
-				"message": "This DSDT dump of your firmware shouldn't be included, instead you should make separate patches for things you need. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "The DSDT dump of your firmware shouldn't be included, instead you should make separate patches for things you need. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Path: ^(?!((SSDT-AWAC|SSDT-ALS0|SSDT-PMC|SSDT-PNLF).aml))": {
 				"type": "error",
-				"message": "**{0}** ACPI isn't required for your system, please remove it from your config"
+				"message": "The **{0}** isn't recommended to be included for your system. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Enabled: true": {
 				"type": "warning",
-				"message": "**{0}** ACPI is disabled. Please check if you need this ACPI and enable it if it's necessary"
+				"message": "The **{0}** is disabled in the config. You might find information about it on [Getting Started With ACPI: Choosing the SSDTs](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html) page and ensure whether this ACPI is necessary and enable it accordingly"
 			}
 		}
 	},
@@ -72,53 +72,53 @@
 		"Add": {
 			"minCount: 1": {
 				"type": "error",
-				"message": "You may be missing Kexts. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)**"
+				"message": "The `Kernel/Add` section appears to be empty, suggesting that you may be lacking Kexts. You can discover information about Kexts on the [Gathering Files: Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) page and include the necessary Kexts for your hardware in the config. \nTo include Kexts in config you should position them in `EFI/OC/Kexts` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"BundlePath: Lilu.kext": {
 				"type": "error",
-				"message": "**{0}** isn't included. \n**Purpose**: Kext and process patching \n**Instructions how to include**: Download **{0}** from **[Lilu repo](https://github.com/acidanthera/Lilu/releases)**, place it in `OC/Kexts` folder and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "This Kext provides patches for numerous processes and kexts. \nTo include this Kext in config you should place it in `EFI/OC/Kexts` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. This Kext can be found inside **[Lilu package](https://github.com/acidanthera/Lilu/releases)**"
 			},
 			"BundlePath: VirtualSMC.kext": {
 				"order": "<Lilu.kext",
 				"type": "error",
-				"message": "**{0}** isn't included. \n**Purpose**: Apple SMC emulation \n**Instructions how to include**: Find **{0}** inside **[VirtualSMC package](https://github.com/acidanthera/virtualsmc/releases)**, place it in `OC/Kexts` folder and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "This Kext functions as an Apple SMC emulation. \nTo include this Kext in config you should place it in `EFI/OC/Kexts` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. This Kext can be found inside **[VirtualSMC package](https://github.com/acidanthera/VirtualSMC/releases)**"
 			},
 			"BundlePath: WhateverGreen.kext": {
 				"order": "<Lilu.kext",
 				"type": "error",
-				"message": "**{0}** isn't included. Please download it, place it in `OC/Kexts` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "This Kext serves for graphics patching, DRM fixes, and other purposes, benefiting all GPUs, making its inclusion highly recommended. \nTo include this Kext in config you should place it in `EFI/OC/Kexts` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. This Kext can be found inside **[WhateverGreen package](https://github.com/acidanthera/WhateverGreen/releases)**"
 			},
 			"BundlePath: ^(?!(FakeSMC.kext))": {
 				"type": "error",
-				"message": "Since **{0}** is not being updated, you should consider using alternative SMC kext like **[VirtualSMC](https://github.com/acidanthera/VirtualSMC)**"
+				"message": "This Kext functions as an Apple SMC emulation; however, it isn't being updated and isn't recommended for use. This Kext should be removed from config by removing it from `EFI/OC/Kexts` and running `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. It should be replaced with **[VirtualSMC](https://github.com/acidanthera/VirtualSMC)** for better functionality and support"
 			},
 			"BundlePath: ^(?!((SMCProcessor|SMCSuperIO|SMCLightSensor|SMCBatteryManager|USBInjectAll).kext))": {
 				"type": "error",
-				"message": "**{0}** doesn't work on AMD platform. You should consider removing it from your config"
+				"message": "This Kext is specifically designed for Intel CPU based platforms or isn't recommended for use. This Kext should be removed from config by removing it from `EFI/OC/Kexts` and running `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"BundlePath: ^(?!(XHCI-unsupported.kext))": {
 				"type": "error",
-				"message": "AMD platform doesn't need **{0}**. You should consider removing it from your config"
+				"message": "This Kext is needed for non-native USB controllers, however **AMD CPU based systems** don't work with this. This Kext should be removed from config by removing it from `EFI/OC/Kexts` and running `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Enabled: true": {
 				"type": "warning",
-				"message": "Kext **{0}** is disabled. Please refer to **[Gathering Files: Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)** to see if it needs to be enabled and is needed for your hardware"
+				"message": "The **{0}** is disabled in the config. You might find information about it on [Gathering Files: Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) page and ensure whether this Kext is necessary and enable it accordingly"
 			}
 		},
 		"Emulate": {
 			"DummyPowerManagement: true": {
 				"type": "error",
-				"message": "This quirk disables `AppleIntelCpuPowerManagement`. AMD CPUs do not work with it. It's recommended to be **enabled**"
+				"message": "This quirk disables `AppleIntelCpuPowerManagement`. AMD CPUs don't work with it. It's recommended to be **enabled**"
 			}
 		},
 		"Patch": {
 			"minCount: 11": {
 				"type": "error",
-				"message": "You may be missing AMD patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)**"
+				"message": "The `Kernel/Patch` section appears to be missing patches for AMD CPU based systems. You can obtain these patches from the **[AMD_Vanilla repository](https://github.com/AMD-OSX/AMD_Vanilla)** and follow the instructions outlined in the **[AMD Desktop config.plist: Ryzen and Threadripper(17h and 19h)](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)** guide for applying the patches correctly"
 			},
 			"maxCount: 22": {
 				"type": "error",
-				"message": "We have detected more patches than you should have included. Please check if you have right patches. **[Click here for more information](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)**"
+				"message": "The `Kernel/Patch` section seems to have too many patches. For AMD-based systems, it is recommended to obtain the necessary patches from the **[AMD_Vanilla repository](https://github.com/AMD-OSX/AMD_Vanilla)** and follow the instructions outlined in the **[AMD Desktop config.plist: Ryzen and Threadripper(17h and 19h)](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)** guide for applying the patches correctly"
 			}
 		},
 		"Quirks": {
@@ -186,7 +186,7 @@
 			},
 			"SecureBootModel: Default": {
 				"type": "info",
-				"message": "**{0}** should be **Disabled** if you want to use Nvidia Web Drivers or selected SMBIOS doesn't support Apple Secure Boot (not to be confused with Secure Boot in your UEFI)"
+				"message": "This quirk sets Apple Secure Boot hardware model and policy. If you intend to use Nvidia Web Drivers or selected SMBIOS doesn't support **[Apple Secure Boot](https://dortania.github.io/OpenCore-Post-Install/universal/security/applesecureboot.html)**, the value is recommended to be **Disabled** to avoid boot issues"
 			},
 			"Vault: Optional": {
 				"type": "info",
@@ -197,7 +197,7 @@
 	"NVRAM": {
 		"WriteFlash: true": {
 			"type": "error",
-			"message": "This quirk enables writing to flash memory (Nvram) for all added variables. It's recommended to be **enabled**"
+			"message": "This quirk enables writing to flash memory (NVRAM) for all added variables. It's recommended to be **enabled**"
 		}
 	},
 	"PlatformInfo": {
@@ -228,23 +228,23 @@
 		"Drivers": {
 			"minCount: 1": {
 				"type": "error",
-				"message": "You may be missing Drivers. Please visit **[Gathering files: Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)** to see needed drivers for your hardware"
+				"message": "The `Drivers` section appears to be empty, suggesting that you may be lacking drivers. You can discover information about drivers on the [Gathering files: Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) page and include the necessary drivers for your hardware in the config. \nTo include drivers in config you should position them in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Path: (.*)HfsPlus.efi": {
 				"type": "error",
-				"message": "This driver wasn't found inside your config \n**Common names**: `HfsPlus.efi`, `OpenHfsPlus.efi` \n**Purpose**: Mounts HFS volumes (e.g. macOS Installers/Recovery) \n**Instructions how to include**: Find this driver inside **[OpenCorePkg package](https://github.com/acidanthera/OpenCorePkg/releases)**, place it in `OC/Drivers` folder and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "The **{0}** hasn't been found in the config. This driver can be found under **OpenHfsPlus.efi** and **HfsPlus.efi** name. It mounts HFS volumes (e.g. macOS Installer/Recovery). \nTo include this driver in config you should position it in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. The open-source driver can be found inside **[OpenCore package](https://github.com/acidanthera/OpenCorePkg/releases)** and non open-source one inside **[OcBinaryData repository](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers)**"
 			},
 			"Path: OpenRuntime.efi": {
 				"type": "error",
-				"message": "**OpenRuntime.efi** isn't included. Please download it, place it in `OC/Drivers` and run `OC Snapshot` with **[ProperTree](https://github.com/corpnewt/ProperTree)** to add it properly into to your config"
+				"message": "The **{0}** hasn't been found in the config. It helps OpenCore with patching `boot.efi` for NVRAM fixes and better memory management. \nTo include this driver in config you should position it in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. This driver can be found inside **[OpenCorePkg package](https://github.com/acidanthera/OpenCorePkg/releases)**"
 			},
 			"Path: ^(?!(OpenCore.efi))": {
 				"type": "error",
-				"message": "This shouldn't be in that section! \n**Purpose**: Main binary responsible for booting \n**Instructions how to remove it**: Move this binary to root directory (`EFI/OC`) and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "The **{0}** is the main file for booting OpenCore. This file should be in the root directory (`EFI/OC`) to properly boot OpenCore. To do that, move this file to root directory and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Enabled: true": {
 				"type": "warning",
-				"message": "Driver **{0}** is disabled. Please visit **[Gathering files: Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html)** to see if it needs to be enabled and is needed for your hardware"
+				"message": "The **{0}** is disabled in the config. You might find information about it on [Gathering Files: Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) page and ensure whether this driver is necessary and enable it accordingly"
 			}
 		}
 	}
