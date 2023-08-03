@@ -15,7 +15,7 @@
 			},
 			"Path: SSDT-PMC.aml": {
 				"type": "warning",
-				"message": "The **{0}** is intended for bringing back NVRAM support. On *Comet Lake* platform it's shouldn't be **used** and included in the config. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` in **[ProperTree](https://github.com/corpnewt/ProperTree)**"
+				"message": "The **{0}** is intended for bringing back NVRAM support. On *Comet Lake* platform it shouldn't be **used** and included in the config. Please remove it from `EFI/OC/ACPI` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
 			"Enabled: true": {
 				"type": "warning",
