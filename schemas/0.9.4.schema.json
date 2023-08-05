@@ -1,6 +1,6 @@
 {
-	"title": "OpenCore v0.9.3 schema",
-	"description": "Schema for OpenCore v0.9.3 config.plist",
+	"title": "OpenCore v0.9.4 schema",
+	"description": "Schema for OpenCore v0.9.4 config.plist",
 	"type": "object",
 	"properties": {
 		"ACPI": {
