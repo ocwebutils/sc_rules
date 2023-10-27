@@ -9,3 +9,6 @@ oc_versions.json
 
 # Junk
 .DS_Store
+
+# lockfile
+pnp

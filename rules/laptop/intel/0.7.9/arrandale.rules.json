@@ -230,9 +230,9 @@
 				"type": "error",
 				"message": "The `Drivers` section appears to be empty, suggesting that you may be lacking drivers. You can discover information about drivers on the [Gathering files: Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) page and include the necessary drivers for your hardware in the config. \nTo include drivers in config you should position them in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**"
 			},
-			"Path: (.*)HfsPlus.efi": {
+			"Path: HfsPlusLegacy.efi": {
 				"type": "error",
-				"message": "The **{0}** hasn't been found in the config. This driver can be found under **OpenHfsPlus.efi** and **HfsPlus.efi** name. It mounts HFS volumes (e.g. macOS Installer/Recovery). \nTo include this driver in config you should position it in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. The open-source driver can be found inside **[OpenCore package](https://github.com/acidanthera/OpenCorePkg/releases)** and non open-source one inside **[OcBinaryData repository](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers)**"
+				"message": "The **{0}** hasn't been found in the config. It mounts HFS volumes (e.g. macOS Installer/Recovery). \nTo include this driver in config you should position it in `EFI/OC/Drivers` and run `OC Snapshot` within **[ProperTree](https://github.com/corpnewt/ProperTree)**. This driver can be found inside **[OcBinaryData repository](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers)**"
 			},
 			"Path: OpenRuntime.efi": {
 				"type": "error",
