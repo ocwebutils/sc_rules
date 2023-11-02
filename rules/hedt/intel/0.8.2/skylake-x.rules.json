@@ -97,6 +97,10 @@
 			"Enabled: true": {
 				"type": "warning",
 				"message": "The **{0}** is disabled in the config. You might find information about it on [Gathering Files: Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts) page and ensure whether this Kext is necessary and enable it accordingly"
+			},
+			"Comment: ^(?!([vV]\\d+\\.\\d+(\\.\\d+)?(\\s\\|\\s\\w+\\.kext)?))": {
+				"type": "warning",
+				"message": "It looks like your config.plist has been edited with `OCAT` or `OpenCore Configurator`. Both of these have their own problems which can, for example, cause the config to not boot properly. We recommend using **[ProperTree](https://github.com/corpnewt/ProperTree)** instead. If that's not the case, please disregard this warning"
 			}
 		},
 		"Quirks": {
