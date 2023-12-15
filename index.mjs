@@ -13,7 +13,7 @@ const createList = () => {
 		const mergedList = [];
 
 		for (let i = 0; i < list.length; i++) {
-			const [_, platform, __, ocVersion, cpuModel] = list[i].split("/");
+			const [_, platform, __, ocVersion, cpuModel] = list[i].replace(/\\/g, "/").split("/");
 			mergedList.push({ cpuModel: `${platform}_${cpuModel.split(".")[0]}`, ocVersion });
 		}
 
