@@ -9,32 +9,34 @@ const getFilesRecursively = directory => {
 };
 
 const createList = () => {
-		const list = getFilesRecursively("./rules");
-		const mergedList = [];
+	const list = getFilesRecursively("./rules");
+	const mergedList = [];
 
-		for (let i = 0; i < list.length; i++) {
-			const [_, platform, __, ocVersion, cpuModel] = list[i].replace(/\\/g, "/").split("/");
-			mergedList.push({ cpuModel: `${platform}_${cpuModel.split(".")[0]}`, ocVersion });
-		}
+	for (let i = 0; i < list.length; i++) {
+		const [_, platform, __, ocVersion, cpuModel] = list[i].replace(/\\/g, "/").split("/");
+		mergedList.push({
+			cpuModel: `${platform}_${cpuModel.split(".")[0]}`,
+			ocVersion
+		});
+	}
 
-		const mergeObjects = mergedList.reduce((m, { cpuModel, ocVersion }) => {
-			m[cpuModel] = [...(m[cpuModel] || []), ocVersion];
-			return m;
-		}, {});
+	const mergeObjects = mergedList.reduce((m, { cpuModel, ocVersion }) => {
+		m[cpuModel] = [...(m[cpuModel] || []), ocVersion];
+		return m;
+	}, {});
 
-		const returnList = Object.entries(mergeObjects).map(([codename, supportedVersions]) => ({
-			codename,
-			supportedVersions: supportedVersions.sort((a, b) => b.localeCompare(a))
-		}));
+	const returnList = Object.entries(mergeObjects).map(([codename, supportedVersions]) => ({
+		codename,
+		supportedVersions: supportedVersions.sort((a, b) => b.localeCompare(a))
+	}));
 
-		return returnList;
-	},
-	createFile = input => {
-		const data = JSON.stringify(input);
+	return returnList;
+};
+const createFile = input => {
+	const data = JSON.stringify(input);
 
-		writeFileSync("./oc_versions.json", data);
-	};
+	writeFileSync("./oc_versions.json", data);
+};
 
 const list = createList();
-
 createFile(list);

@@ -1,10 +1,13 @@
 {
 	"name": "@ocwebutils/sc_rules",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"private": true,
 	"main": "index.mjs",
 	"scripts": {
 		"prepare": "node index.mjs"
+	},
+	"dependencies": {
+		"@biomejs/biome": "1.5.3"
 	}
 }
