@@ -46,9 +46,9 @@
 				"type": "warning",
 				"message": "**{0}** must be disabled if it's Legacy or OpenCore log says to disable it"
 			},
-			"RebuildAppleMemoryMap: false": {
+			"RebuildAppleMemoryMap: true": {
 				"type": "error",
-				"message": "This quirk generates macOS compatible memory map. It's recommended to be **disabled**"
+				"message": "This quirk generates macOS compatible memory map. It's recommended to be **enabled**"
 			},
 			"ResizeAppleGpuBars: -1": {
 				"type": "info",
