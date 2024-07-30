@@ -120,7 +120,7 @@
 				"type": "error",
 				"message": "The `Kernel/Patch` section appears to be missing patches for AMD CPU based systems. You can obtain these patches from the **[AMD_Vanilla repository](https://github.com/AMD-OSX/AMD_Vanilla)** and follow the instructions outlined in the **[AMD Desktop config.plist: Ryzen and Threadripper(17h and 19h)](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)** guide for applying the patches correctly"
 			},
-			"maxCount: 22": {
+			"maxCount: 25": {
 				"type": "error",
 				"message": "The `Kernel/Patch` section seems to have too many patches. For AMD-based systems, it is recommended to obtain the necessary patches from the **[AMD_Vanilla repository](https://github.com/AMD-OSX/AMD_Vanilla)** and follow the instructions outlined in the **[AMD Desktop config.plist: Ryzen and Threadripper(17h and 19h)](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html#patch-2)** guide for applying the patches correctly"
 			}
