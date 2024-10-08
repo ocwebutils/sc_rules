@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
@@ -18,8 +18,8 @@
 	},
 	"javascript": {
 		"formatter": {
-			"trailingComma": "none",
-			"arrowParentheses": "asNeeded"
+			"trailingCommas": "all",
+			"arrowParentheses": "always"
 		}
 	},
 	"vcs": {
